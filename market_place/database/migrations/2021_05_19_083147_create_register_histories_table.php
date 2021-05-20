@@ -19,8 +19,8 @@ class CreateRegisterHistoriesTable extends Migration
             $table->bigInteger('textbook_id')->unsigned()->index;
             $table->timestamps(); 
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('textbook_id')->references('id')->on('textbooks')->onDelete('cascade');
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            //$table->foreign('textbook_id')->references('id')->on('textbooks')->onDelete('cascade');
 
         });
     }

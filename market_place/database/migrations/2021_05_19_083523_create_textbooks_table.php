@@ -23,8 +23,8 @@ class CreateTextbooksTable extends Migration
             $table->string('publisher', 30);
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
+            //$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            //$table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
         });
     }
 
