@@ -15,7 +15,16 @@ class CreateTextbooksTable extends Migration
     {
         Schema::create('textbooks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('category_id')->unsigned()->index;
+            $table->bigInteger('state_id')->unsigned()->index;
+            $table->string('title', 50);
+            $table->bigInteger('price');
+            $table->string('author', 30);
+            $table->string('publisher', 30);
             $table->timestamps();
+
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
         });
     }
 
