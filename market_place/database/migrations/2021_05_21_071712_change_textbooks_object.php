@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ChangeTextbookIdForeignKey extends Migration
+class ChangeTextbooksObject extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,12 @@ class ChangeTextbookIdForeignKey extends Migration
     public function up()
     {
         Schema::table('textbooks', function (Blueprint $table) {
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
+            
+            $table->dropColumn('category_id');
+            $table->dropColumn('state_id');
+
+            $table->string('category');
+            $table->string('state');
         });
     }
 
@@ -27,9 +31,12 @@ class ChangeTextbookIdForeignKey extends Migration
     public function down()
     {
         Schema::table('textbooks', function (Blueprint $table) {
-            $table->dropForeign(['category_id']);
-            $table->dropForeign(['state_id']);
+            
+            $table->bigInteger('category_id')->unsigned()->index;
+            $table->bigInteger('state_id')->unsigned()->index;
 
+            $table->dropColumn('category');
+            $table->dropColumn('state');
         });
     }
 }
