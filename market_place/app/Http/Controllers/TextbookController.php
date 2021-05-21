@@ -14,8 +14,8 @@ class TextbookController extends Controller
      */
     public function index()
     {
-        $textbooks = Textbook::orderBy('created_at', 'desc')->all();
-        return view('textbooks/index', ['textbooks' => $textbooks]);
+        // $textbooks = Textbook::orderBy('created_at', 'desc')->all();
+    return view('textbooks.index'/*, ['textbooks' => $textbooks]*/);
     }
 
     /**
