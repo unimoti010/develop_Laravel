@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Textbook extends Model
 {
-    protected $fillable = ['category', 'state', 'title', 'price', 'author', 'publisher'];
+    protected $fillable = ['title', 'price', 'author', 'publisher', 'category', 'state'];
     public function category()
     {
         return $this->belongsTo('Category::class');
