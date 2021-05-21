@@ -27,7 +27,8 @@ class ChangePurchaseHistoriesForeignKey extends Migration
     public function down()
     {
         Schema::table('purchase_histories', function (Blueprint $table) {
-            $table->dropForeign(['user_id', 'textbook_id']);
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['textbook_id']);
         });
     }
 }

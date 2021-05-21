@@ -28,7 +28,8 @@ class ChangeRegisterHistoriesForeignKey extends Migration
     public function down()
     {
         Schema::table('register_histories', function (Blueprint $table) {
-            $table->dropForeign(['user_id', 'textbook_id']);
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['textbook_id']);
         });
     }
 }
