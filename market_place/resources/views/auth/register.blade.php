@@ -3,7 +3,7 @@
 @section('content')
 
 <h1>会員登録</h1>
-{-- @include('commons/flash') --}
+{{-- @include('commons/flash') --}}
 <form action="{{ route('register') }}" method="post">
     @csrf
     <p>
@@ -38,6 +38,4 @@
         <a href="{{ route('login') }}">ログイン</a>
     </p>
 </form>
-@endsection
-
 @endsection
