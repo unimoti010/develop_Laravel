@@ -37,6 +37,7 @@ class TextbookController extends Controller
     public function store(Request $request)
     {
         $textbook = $request->user()->textbooks()->create($request->all());
+        //register_historiesにも保存（動作未確認）
        /* $textbook_id = $inputs['id'];
         $user = new User;
         $user->textbooks()->attach($textbook_id); */
