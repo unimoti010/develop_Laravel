@@ -16,3 +16,5 @@ Route::get('home', 'HomeController@index')->name('home');
 Route::resource('register_histories','RegisterHistoryController');
 Route::resource('textbooks','TextbookController');
 Auth::routes();
+
+Route::resource('textbooks', 'TextbookController');

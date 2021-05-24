@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Textbook;
 use Illuminate\Http\Request;
+use App\Textbook;
 
 class TextbookController extends Controller
 {
@@ -14,7 +14,8 @@ class TextbookController extends Controller
      */
     public function index()
     {
-        //
+        $textbooks = Textbook::orderBy('price', 'desc')->get();
+        return view('textbooks.index', ['textbooks' => $textbooks]);
     }
 
     /**
@@ -47,12 +48,12 @@ class TextbookController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Textbook  $textbook
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show(Textbook $textbook)
     {
-        //
+        return view('textbooks.show', ['textbook' => $textbook]);
     }
 
     /**
@@ -63,7 +64,7 @@ class TextbookController extends Controller
      */
     public function edit(Textbook $textbook)
     {
-        //
+        return view('textbooks.edit',['textbook' => $textbook]);
     }
 
     /**
@@ -75,7 +76,8 @@ class TextbookController extends Controller
      */
     public function update(Request $request, Textbook $textbook)
     {
-        //
+        $textbook->update($request->all());
+        return redirect(route('textbooks.show',$textbook));
     }
 
     /**
@@ -86,6 +88,7 @@ class TextbookController extends Controller
      */
     public function destroy(Textbook $textbook)
     {
-        //
+        $textbook->delete();
+        return redirect(route('textbooks.index'));
     }
 }
