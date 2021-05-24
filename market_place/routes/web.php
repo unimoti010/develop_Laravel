@@ -12,7 +12,10 @@
 */
 
 
-Auth::routes();
 
-Route::get('/', 'HomeController@index');
-Route::resource('user', 'UserController');
+
+Route::get('/', 'HomeController@index')->name('home');
+Route::resource('users', 'UserController');
+Route::delete('users/{id}', 'UserController@destroy');
+
+Auth::routes();

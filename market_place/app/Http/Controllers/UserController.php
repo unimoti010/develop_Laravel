@@ -13,7 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = \Auth::user();
+        return view('user.index', ['user' => $user]);
     }
 
     /**
@@ -54,9 +55,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user, $id)
+    public function edit($id)
     {
-        return view('user.edit', ['user' => $user]);
+        $user = \Auth::user();
+        return view('user/edit', ['user' => $user]);
     }
 
     /**
@@ -69,7 +71,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->update($request->all());
-        return redirect(route('home', $user));
+        return redirect(route('users', $user));
     }
 
     /**
@@ -78,8 +80,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //退会
     public function destroy($id)
     {
-        //
+        //ログアウト
+        \Auth::user()->logout();
+        //データを消す
+        $user = \Auth::id();
+        $user->delete();
+        return redirect(route('home'));
     }
 }
