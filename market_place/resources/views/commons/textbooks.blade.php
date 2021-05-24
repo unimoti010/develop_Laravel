@@ -9,7 +9,7 @@
             <th>本の状態</th>
         </tr>
     </thead>
-    <tbody>
+    {{-- <tbody>
         @foreach($textbooks as $textbook)
             <tr>
                 <td>{{ $textbook->title }}</td>
@@ -20,6 +20,6 @@
                 <td>{{ $textbook->states }}</td>
             </tr>
         @endforeach
-    </tbody>
+    </tbody> --}}
 </table>
-{{ $users->links() }}
+{{-- {{ $users->links() }} --}}

@@ -7,7 +7,7 @@
             <th>メールアドレス</th>
         </tr>
     </thead>
-    <tbody>
+    {{-- <tbody>
         @foreach($users as $user)
             <tr>
                 <td>{{ $user->name }}</td>
@@ -16,6 +16,6 @@
                 <td>{{ $user->email }}</td>
             </tr>
         @endforeach
-    </tbody>
+    </tbody> --}}
 </table>
-{{ $users->links() }}
+{{-- {{ $users->links() }} --}}
