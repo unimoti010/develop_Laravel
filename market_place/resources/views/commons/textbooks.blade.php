@@ -22,4 +22,4 @@
         @endforeach
     </tbody>
 </table>
-{{-- {{ $users->links() }} --}}
+{{ $textbooks->links() }}

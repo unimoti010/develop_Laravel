@@ -10,13 +10,15 @@ class AdminController extends Controller
 {
     public function allUsers()
     {
-        $users = User::all();
+        $users = User::orderBy('created_at','desc')->get();
+        $users = User::paginate(10);
         return view('admin.allUsers',['users' => $users]);
     }
 
     public function allTextbooks()
     {
-        $textbooks = Textbook::all();
+        $textbooks = Textbook::orderBy('created_at','desc')->get();
+        $textbooks = Textbook::paginate(10);
         return view('admin.allTextbooks',['textbooks' => $textbooks]);
     }
 
