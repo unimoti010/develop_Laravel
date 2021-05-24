@@ -2,7 +2,7 @@
 
 @section('content')
 <!--ログイン後のホーム画面-->
-<p><a href="{{ route('user.edit', $user->id) }}" >会員情報変更</a></p>
+<p><a href="{{ route('users.edit') }}" >会員情報変更</a></p>
 <!--あとでリンク先を追加する
 <p><a href="{{ route('') }}"></a>教科書登録</p>
 

@@ -91,4 +91,9 @@ class UserController extends Controller
         $user->delete();
         return redirect(route('home'));
     }
+
+    public function unsubscribe()
+    {
+        return view('user.unsubscribe');
+    }
 }

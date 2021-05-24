@@ -16,6 +16,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('users', 'UserController');
-Route::delete('users/{id}', 'UserController@destroy');
+
+//Route::get('users/unsubscribe', 'UserController@unsubscribe')->name('users.unsubscribe');
 
 Auth::routes();

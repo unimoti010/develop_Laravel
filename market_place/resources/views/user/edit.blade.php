@@ -31,11 +31,12 @@
         <input type="password" name="password_confirmation" value="">
     </p>
     <p>
-        <a href="{{ route('home') }}">変更</a> <!--あとで編集画面に戻るリンクに変更する-->
+        <a href="{{ route('users.edit') }}">変更</a> <!--あとで編集画面に戻るリンクに変更する-->
     </p>
     <p>
-        <!--ボタンをクリックするとunsubscribe.blade.phpに遷移する（遷移先でポップアップを表示）-->
-        <a href="{{-- route('unsubscribe') --}}">退会する</a>
+        <!--ボタンをクリックすると確認のポップアップを表示-->
+        <button id="unsubscribe">退会する</button>
+
 
     </p>
 </form>
