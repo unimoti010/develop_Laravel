@@ -45,7 +45,7 @@ class TextbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Textbook $textbook)
     {
         return view('textbooks.show', ['textbook' => $textbook]);
     }
