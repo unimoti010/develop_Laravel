@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'address', 'tel', 'email', 'password',
     ];
 
     /**
@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function register_histories_textbooks()
     {
-        return $this->belongsToMany(Textbook::class, 'register_histories');
+        return $this->hasMany(Textbook::class, 'register_histories');
     }
 
 }
