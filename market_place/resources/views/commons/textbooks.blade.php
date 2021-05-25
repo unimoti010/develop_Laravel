@@ -18,6 +18,12 @@
                 <td>{{ $textbook->publisher }}</td>
                 <td>{{ $textbook->price }}</td>
                 <td>{{ $textbook->states }}</td>
+                <td>
+                    <a href="{{ route('textbooks.edit', $textbook) }}">編集</a>
+                </td>
+                <td>
+                    <a href="{{ route('textbooks.destroy', $textbook) }}">削除</a>
+                </td>
             </tr>
         @endforeach
     </tbody>

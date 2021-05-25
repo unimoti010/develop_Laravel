@@ -14,7 +14,13 @@
                 <td>{{ $user->address }}</td>
                 <td>{{ $user->tel }}</td>
                 <td>{{ $user->email }}</td>
-            </tr>
+                {{-- <td>
+                    <a href="{{ route('user.edit') }}">編集</a>
+                </td>
+                <td>
+                    <a href="{{ route('user.destory') }}">削除</a>
+                </td>
+            </tr> --}}
         @endforeach
     </tbody>
 </table>
