@@ -2,12 +2,6 @@
 
 @section('content')
 <h1>詳細情報</h1>
-<form action="purchase.blade.php" method="GET">
-    {{-- 送信先のパスどうする --}}
-    @csrf
-    <button type="submit">購入</button>
-</form>
-
 <dl>
     <dt>タイトル</dt>
     <dd>{{ $textbook->title }}</dd>
@@ -23,7 +17,7 @@
     <dd>{{ $textbook->state }}</dd>
 </dl>
 
-{{-- <p>
+<p>
     <a href="{{ route('textbooks.edit', $textbook) }}">編集</a>
     |
     <a href="{{ route('textbooks.destroy', $textbook) }}" onclick="deleteTextbook()">削除</a>
@@ -42,6 +36,6 @@
             }
         }
     </script>
-</p> --}}
+</p>
 
 @endsection
