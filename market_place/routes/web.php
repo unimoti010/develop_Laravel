@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/','Auth\LoginController@showLoginForm');
 Route::get('home', 'HomeController@index')->name('home');
 
 Route::get('admin/allUsers', 'AdminController@allUsers')->name('admin.allUsers');
