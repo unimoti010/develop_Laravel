@@ -92,7 +92,7 @@ class TextbookController extends Controller
             'state' => 'required'
         ]);
         $textbook->update($request->all());
-        return redirect(route('textbooks.show',$textbook));
+        return redirect(route('register_histories.show',$textbook));
     }
 
     /**
