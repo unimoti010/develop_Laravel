@@ -3,7 +3,7 @@
 @section('content')
 
 <h1>会員登録</h1>
-{{-- @include('commons/flash') --}}
+ @include('commons/flash') 
 <form action="{{ route('register') }}" method="post">
     @csrf
     <p>
@@ -11,7 +11,7 @@
         <input type="text" name="name" s value="{{ old('name') }}">
     </p>
     <p>
-        <label>電話番号</label><br>
+        <label>電話番号（-をつけて入力）</label><br>
         <input type="tel" name="tel" s value="{{ old('tel') }}">
     </p>
     <p>
@@ -29,6 +29,13 @@
     <p>
         <label>パスワード確認</label><br>
         <input type="password" name="password_confirmation" value="">
+    </p>
+    <p>
+        <label>ユーザの種類</label><br>
+        <select name="admin">
+            <option value="0">会員</option>
+            <option value="1">管理者</option>
+        </select>
     </p>
     <p>
         <button type="submit">会員登録</button>

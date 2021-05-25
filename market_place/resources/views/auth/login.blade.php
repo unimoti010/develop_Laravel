@@ -2,6 +2,7 @@
 
 @section('content')
 <h1>ログイン</h1>
+@include('commons/flash')
 <form action="{{ route('login') }}" method="post">
     @csrf
     <p>
