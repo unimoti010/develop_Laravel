@@ -13,6 +13,12 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index')->name('home');
+
 Route::get('admin/allUsers', 'AdminController@allUsers')->name('admin.allUsers');
 Route::get('admin/allTextbooks', 'AdminController@allTextbooks')->name('admin.allTextbooks');
+
+Route::resource('register_histories','RegisterHistoryController');
+Route::resource('textbooks','TextbookController');
+Route::resource('textbooks', 'TextbookController');
+
 Auth::routes();
