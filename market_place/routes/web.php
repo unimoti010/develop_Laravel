@@ -13,12 +13,11 @@
 
 Route::get('/','Auth\LoginController@showLoginForm');
 Route::get('home', 'HomeController@index')->name('home');
+// Route::get('/', 'HomeController@index')->name('home');
+// Route::get('logout', 'Auth\LoginController@logout');
 
-
-
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('users/index', 'UserController@index')->name('users.index');
 Route::resource('users', 'UserController');
 
-//Route::get('users/unsubscribe', 'UserController@unsubscribe')->name('users.unsubscribe');
 
 Auth::routes();
