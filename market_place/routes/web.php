@@ -19,3 +19,11 @@ Route::get('home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::resource('textbooks', 'TextbookController');
+
+Route::post('purchase_histories/notification', 'PurchaseHistoryController@notification')
+->name('purchase_histories.notification');
+
+//認証ミドルウェア
+Route::group(['middleware' => ['auth']], function (){
+    Route::get('purchase_histories', 'PurchaseHistoryController@index')->name('purchase_histories.index');
+});
