@@ -70,10 +70,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, User $user)
     {
+        // ddd($request);
         $user->update($request->all());
-        return view('user/index');
+        return view('user/index', ['user' => $user ]);
     }
 
     /**
@@ -84,12 +85,15 @@ class UserController extends Controller
      */
 
     //退会
-    public function destroy($id)
+    public function destroy(User $user)
     {
+        ddd('test');
+
         //ログアウト
-        \Auth::user()->logout();
+        // \Auth::user()->logout();
         //データを消す
-        $user = \Auth::id();
+        $user_id = \Auth::id();
+        $user = User::find($user_id);
         $user->delete();
         return redirect(route('home'));
     }

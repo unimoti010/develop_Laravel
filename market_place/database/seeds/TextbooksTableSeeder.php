@@ -11,6 +11,7 @@ class TextbooksTableSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
         for ($i=1; $i < 30; $i++) { 
             $textbook = new \App\Textbook([
                 'title'      => 'サンプル' . $i,
@@ -22,5 +23,27 @@ class TextbooksTableSeeder extends Seeder
             ]);
             $textbook->save();
         }
+=======
+        for ($i = 1; $i <= 100; $i++) {
+            $textbook = new \App\Textbook([
+                'title' => 'サンプル商品' . $i,
+                'price' => rand(10, 50) * 100,
+                'author' => 'サンプル太郎',
+                'publisher' => 'サンプル出版',
+                'category' => 'サンプルカテゴリ',
+                'state' => '新品同様'
+            ]);
+            $textbook->save();
+        }
+
+        // DB::table('textbooks')->insert(['title' => 'IT入門']);
+        // DB::table('textbooks')->insert(['title' => '古典入門']);
+        // DB::table('textbooks')->insert(['title' => '世界史入門']);
+        // DB::table('textbooks')->insert(['title' => '人類学入門']);
+        // DB::table('textbooks')->insert(['title' => '英文学入門']);
+        // DB::table('textbooks')->insert(['title' => '数学入門']);
+        // DB::table('textbooks')->insert(['title' => '栄養学入門']);
+
+>>>>>>> 2283cb15c13d85ecac751d69602b40a140de13f7
     }
 }
