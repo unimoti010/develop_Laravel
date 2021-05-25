@@ -2,10 +2,10 @@
 
 @section('content')
 <h1>会員情報の変更</h1>
-{{-- @include('commons/flash') --}}
-<form action="{{-- route('users.update') --}}" method="post">
-    @method('put')
+@include('commons/flash')
+<form action="{{ route('users.update', $user->id) }}" method="post">
     @csrf
+    @method('put')
     <p>
         <label>名前</label><br>
         <input type="text" name="name" s value="{{ old('name') }}">
@@ -31,7 +31,7 @@
         <input type="password" name="password_confirmation" value="">
     </p>
     <p>
-        <a href="{{ route('users.edit') }}">変更</a>
+        <button type="submit">変更する</button>
     </p>
     <p>
         <!--ボタンをクリックすると確認のポップアップを表示-->
