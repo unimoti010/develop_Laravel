@@ -104,6 +104,6 @@ class TextbookController extends Controller
     public function destroy(Textbook $textbook)
     {
         $textbook->delete();
-        return redirect(route('textbooks.index'));
+        return redirect(route('register_histories.index'));
     }
 }

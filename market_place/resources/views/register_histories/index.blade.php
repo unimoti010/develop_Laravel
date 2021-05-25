@@ -23,4 +23,3 @@
     </tbody>
 </table>
 {{ $textbooks->links() }}
-<a href="{{ route('home') }}">ホームへ</a>
