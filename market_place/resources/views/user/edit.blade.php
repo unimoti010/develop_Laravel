@@ -12,15 +12,15 @@
     </p>
     <p>
         <label>電話番号</label><br>
-        <input type="tel" name="tel" value="{{ old('tel') }}">
+        <input type="tel" name="tel" value="{{ old('tel', $user->tel) }}">
     </p>
     <p>
         <label>住所</label><br>
-        <input type="address" name="address" value="{{ old('address') }}">
+        <input type="address" name="address" value="{{ old('address', $user->address) }}">
     </p>
     <p>
         <label>メールアドレス</label><br>
-        <input type="email" name="email" value="{{ old('email') }}">
+        <input type="email" name="email" value="{{ old('email', $user->email) }}">
     </p>
     <p>
         <label>パスワード</label><br>
