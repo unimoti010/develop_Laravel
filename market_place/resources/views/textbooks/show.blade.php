@@ -2,16 +2,10 @@
 
 @section('content')
 <h1>詳細情報</h1>
-<form action="{{ route('purchase_histories.notification') }}" method="post"> 
+{{-- <form action="{{ route('purchase_histories.notification') }}" method="post">  --}}
+<form action="{{ route('textbooks.purchaseTable') }}" method="post">
     @csrf
-    {{-- <input type="hidden" value="{{$textbook->title}}" name="title"/>
-    <input type="hidden" value="{{$textbook->category}}" name="category"/>
-    <input type="hidden" value="{{$textbook->author}}" name="author"/>
-    <input type="hidden" value="{{$textbook->publisher}}" name="publisher"/>
-    <input type="hidden" value="{{$textbook->price}}" name="price"/>
-    <input type="hidden" value="{{$textbook->state}}" name="state"/> --}}
     <input type="hidden" value="{{$textbook->id}}" name="id"/>
-
 
     <button type="submit">購入</button>
 </form>

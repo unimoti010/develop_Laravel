@@ -11,25 +11,16 @@ class TextbooksTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 100; $i++) {
+        for ($i=1; $i < 30; $i++) { 
             $textbook = new \App\Textbook([
-                'title' => 'サンプル商品' . $i,
-                'price' => rand(10, 50) * 100,
-                'author' => 'サンプル太郎',
-                'publisher' => 'サンプル出版',
-                'category' => 'サンプルカテゴリ',
-                'state' => '新品同様'
+                'title'      => 'サンプル' . $i,
+                'price'     => rand(10,50) * 10,
+                'author'    => '村人' . chr(mt_rand(97, 122)),
+                'publisher' => '会社' . chr(mt_rand(97, 122)),
+                'category'  => 'カテゴリ' . chr(mt_rand(97, 122)),
+                'state'     => '状態' . chr(mt_rand(97, 122)),
             ]);
             $textbook->save();
         }
-
-        // DB::table('textbooks')->insert(['title' => 'IT入門']);
-        // DB::table('textbooks')->insert(['title' => '古典入門']);
-        // DB::table('textbooks')->insert(['title' => '世界史入門']);
-        // DB::table('textbooks')->insert(['title' => '人類学入門']);
-        // DB::table('textbooks')->insert(['title' => '英文学入門']);
-        // DB::table('textbooks')->insert(['title' => '数学入門']);
-        // DB::table('textbooks')->insert(['title' => '栄養学入門']);
-
     }
 }

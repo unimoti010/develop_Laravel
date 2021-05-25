@@ -21,9 +21,16 @@ class PurchaseHistoryController extends Controller
 
         return view('purchase.notification', ['textbooks' => [$textbook]]);
     }
-    public function store()
-    {
-        
-    }
+
+
+    // public function store(Request $request)
+    // {
+    //     $textbook = new Textbook;
+    //     $textbook->id = $request->id;
+    //     $textbook->save();
+
+    //     $user_id = \Auth::id();
+    //     $user_id->save();
+    // }
 
 }
