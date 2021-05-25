@@ -3,7 +3,7 @@
 @section('content')
 <h1>会員情報の変更</h1>
 @include('commons/flash')
-{{-- <form action="{{ route('users.update', $user->id) }}" method="post"> --}}
+{{ <form action="{{ route('users.update', auth()->user()) }}" method="post"> }}
     @csrf
     @method('put')
     <p>

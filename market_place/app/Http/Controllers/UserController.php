@@ -15,8 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        // $user = \Auth::user();
-        return view('user/index'/*,['user' => Auth::user() ]*/);
+        $user = \Auth::user();
+        return view('user/index',['user' => $user ]);
     }
 
     /**
@@ -94,8 +94,4 @@ class UserController extends Controller
         return redirect(route('home'));
     }
 
-    public function unsubscribe()
-    {
-        return view('user.unsubscribe');
-    }
 }

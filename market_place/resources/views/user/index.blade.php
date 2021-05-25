@@ -3,7 +3,7 @@
 @section('content')
 @if (Auth::check())
 <!--ログイン後のホーム画面-->
-<p><a href="{{-- route('users.edit', $user) --}}">会員情報変更</a></p>
+<p><a href="{{ route('users.edit', $user) }}">会員情報変更</a></p>
 
 
 <!--あとでリンク先を追加する-->
