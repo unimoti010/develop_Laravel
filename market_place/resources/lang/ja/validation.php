@@ -149,6 +149,12 @@ return [
                      'email' => 'メールアドレス',
                      'address' => '住所',
                      'tel' => '電話番号',
-                     'password' => 'パスワード'],
+                     'password' => 'パスワード',
+                     'title' => '題名',
+                     'category' => 'カテゴリ',
+                     'author' => '著者名',
+                     'publisher' => '出版社名',
+                     'price' => '価格',
+                     'state' => '状態'],
 
 ];

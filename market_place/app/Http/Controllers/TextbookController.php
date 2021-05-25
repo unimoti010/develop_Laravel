@@ -38,6 +38,14 @@ class TextbookController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'category' => 'required',
+            'author' => 'required|max:30',
+            'publisher' => 'required|max:30',
+            'price' => 'required',
+            'state' => 'required'
+        ]);
         $textbook = Textbook::create($request->all());
         $textbook_id = $textbook->id;
         \Auth::user()->register_histories()->attach($textbook_id); 
@@ -75,6 +83,14 @@ class TextbookController extends Controller
      */
     public function update(Request $request, Textbook $textbook)
     {
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'category' => 'required',
+            'author' => 'required|max:30',
+            'publisher' => 'required|max:30',
+            'price' => 'required',
+            'state' => 'required'
+        ]);
         $textbook->update($request->all());
         return redirect(route('textbooks.show',$textbook));
     }
