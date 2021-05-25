@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        'App\User' => 'App\Policies\administratorPolicy',
     ];
 
     /**
@@ -25,9 +25,6 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        // 管理者の場合にTrueを返す
-        Gate::define('admin', function($user){
-            return ($user->admin == 0);
-        });
+        Gate::resource('administrators', 'App\Policies\administratorsPolicy');
     }
 }
