@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Textbook;
+use App\User;
 
 class TextbookController extends Controller
 {
@@ -37,11 +38,9 @@ class TextbookController extends Controller
      */
     public function store(Request $request)
     {
-        $textbook = $request->user()->textbooks()->create($request->all());
-        //register_historiesにも保存（動作未確認）
-       /* $textbook_id = $inputs['id'];
-        $user = new User;
-        $user->textbooks()->attach($textbook_id); */
+        $textbook = Textbook::create($request->all());
+        $textbook_id = $textbook->id;
+        \Auth::user()->register_histories()->attach($textbook_id); 
         return redirect(route('register_histories.index'));
     }
 
