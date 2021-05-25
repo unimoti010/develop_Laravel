@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>購入した商品</h1>
-@include('commons/books')
+@include('commons/textbooks')
 
 <p>お買い上げありがとうございました</p>
 <form action="{{route('purchase_histories.index')}}">
