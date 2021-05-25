@@ -1,12 +1,22 @@
 <dl>
-    <dt>価格</dt>
+    <dt>会員名</dt>
     <dd>
-        <input type="number" name="price_min" value="{{ request('price_min') }}" placeholder="円">
-        〜
-        <input type="number" name="price_max" value="{{ request('price_max') }}" placeholder="円">
+        <input type="text" name="name" value="{{ request('name') }}" placeholder="会員名">
     </dd>
-    <dt>キーワード</dt>
+    <dt>住所</dt>
     <dd>
-        <input type="text" name="keyword" value="{{ request('keyword') }}" placeholder="キーワード">
+        <input type="text" name="address" value="{{ request('address') }}" placeholder="住所">
+    </dd>
+    <dt>電話番号</dt>
+    <dd>
+        <input type="text" name="tel" value="{{ request('tel')}}" placeholder="電話番号">
+    </dd>
+    <dt>メールアドレス</dt>
+    <dd>
+        <input type="text" name="email" value="{{request('email')}}" placeholder="メールアドレス">
+    </dd>
+    <dt>管理者権限</dt>
+    <dd>
+        <input type="checkbox" name="admin" value="{{request('admin')}}">
     </dd>
 </dl>
