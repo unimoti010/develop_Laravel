@@ -20,6 +20,8 @@ Auth::routes();
 
 Route::resource('textbooks', 'TextbookController');
 
+Route::post('textbooks', 'TextbookController@purchaseTable')->name('textbooks.purchaseTable');
+
 Route::post('purchase_histories/notification', 'PurchaseHistoryController@notification')
 ->name('purchase_histories.notification');
 
