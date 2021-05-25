@@ -19,6 +19,5 @@ Route::get('admin/allTextbooks', 'AdminController@allTextbooks')->name('admin.al
 
 Route::resource('register_histories','RegisterHistoryController');
 Route::resource('textbooks','TextbookController');
-Route::resource('textbooks', 'TextbookController');
 
 Auth::routes();
