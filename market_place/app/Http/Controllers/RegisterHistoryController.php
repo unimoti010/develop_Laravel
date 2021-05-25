@@ -15,8 +15,8 @@ class RegisterHistoryController extends Controller
     public function index()
     {
         //register_historiesテーブルから登録日時が新しい順で取得してviewに返す(ログインしているユーザの)
-        $register_histories = \Auth::user()->register_histories()->orderBy('created_at', 'desc')->paginate(20);
-        return view('register_histories/index',['register_histories' => $register_histories]);
+        $textbooks = \Auth::user()->register_histories()->orderBy('created_at', 'desc')->paginate(20);
+        return view('register_histories/index',['textbooks' => $textbooks]);
     }
 
     /**
