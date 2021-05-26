@@ -74,7 +74,6 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        // ddd($request);
         $user->update($request->all());
         return view('user.index', ['user' => $user ]);
     }
