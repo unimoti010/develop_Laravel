@@ -17,10 +17,8 @@
                 {{-- <td>{{ $textbook->states }}</td> --}}
                 @can('isAdmin')
                 <td>
-                    <a href="{{ route('textbooks.edit', $textbook) }}">編集</a>
-                </td>
-                <td>
-                    <a href="{{ route('textbooks.destroy', $textbook) }}">削除</a>
+                    <a href="{{route('textbooks.show', $textbook->id)}}">{{$textbook->title}}
+                    </a>
                 </td>
                 @endcan
             </tr>

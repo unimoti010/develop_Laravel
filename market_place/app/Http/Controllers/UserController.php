@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+<<<<<<< HEAD
 use App\Textbook;
+=======
+use Illuminate\Support\Facades\Hash;
+>>>>>>> 3dd31d78190b41fbd62bd06731075a1603d9a208
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -74,8 +78,28 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+<<<<<<< HEAD
         $user->update($request->all());
         return view('user.index', ['user' => $user ]);
+=======
+        // $request->user()->fill(['password' => Hash::make($request->password)])->update();
+
+        // $user->fill(array_merge($request->all(), 
+        // ['password' => Hash::make($request->password)]))->update();
+
+        $user = \Auth::user()->update([
+            'name' => $request->name,
+            'address' => $request->address,
+            'tel' => $request->tel,
+            'email' => $request->email,
+            'password' => Hash::make($request['password'])
+        ]);
+        return view('user/index', ['user' => $user ]);
+
+        //訂正前
+        // $user->update($request->all());
+        // return view('user/index', ['user' => $user ]);
+>>>>>>> 3dd31d78190b41fbd62bd06731075a1603d9a208
     }
 
     /**
