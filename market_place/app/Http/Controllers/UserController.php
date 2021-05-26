@@ -76,7 +76,7 @@ class UserController extends Controller
     {
         // ddd($request);
         $user->update($request->all());
-        return view('user/index', ['user' => $user ]);
+        return view('user.index', ['user' => $user ]);
     }
 
     /**
