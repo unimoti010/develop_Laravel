@@ -20,8 +20,6 @@ Route::get('home', 'HomeController@index')->name('home');
 //会員情報画面関連
 Route::get('user/index', 'UserController@index')->name('users.index');
 Route::resource('users', 'UserController');
-// Route::get('users/{id}/edit', 'UserController@edit')->name('users.edit');
-// Route::put('users/{id}', 'UserController@update')->name('users.update');
 
 
 Route::get('register_histories','RegisterHistoryController@index')->name('register_histories.index');

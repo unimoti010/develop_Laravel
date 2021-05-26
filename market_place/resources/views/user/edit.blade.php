@@ -37,17 +37,18 @@
     <p>
     <!--退会処理・・・クリックすると確認のポップアップを表示-->
     <a href="" onclick="deleteUser()">退会する</a>
-    <form action="{{ route('users.destroy', $user) }}" method="post" id="delete-form">
+    <form action="{{ route('users.destroy', $user->id) }}" method="post" id="delete-form1">
         @csrf
         @method('delete')
-        <button type="submit">削除</button>
+        <input type="hidden" name="user_id" value="{{ $user->id }}">
     </form>     
     </p>
     <script type="text/javascript">
         function deleteUser(){
+            event.preventDefault();
             if(window.confirm("本当に退会しますか？")){
-                document.getElementById('delete-form').submit();
-                // alert("退会が完了しました。\nご利用ありがとうございました。");
+                document.getElementById("delete-form1").submit();
+                alert("退会が完了しました。\nご利用ありがとうございました。");
                 // window.location.href = "http://localhost:8000/home";                
             } else {
             window.alert("退会をキャンセルしました。");
