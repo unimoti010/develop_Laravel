@@ -5,9 +5,10 @@
 @include('commons/textbooks')
 
 <p>お買い上げありがとうございました</p>
-<form action="{{route('purchase_histories.index')}}">
-    @csrf
+{{-- <form action="{{route('purchase_histories.index')}}">
+    @csrf --}}
     
-    <button type="submit">購入履歴へ</button>
-</form>
+    <a href="{{route('purchase_histories.index')}}">購入履歴へ</a>
+    {{-- <button type="submit">購入履歴へ</button>
+</form> --}}
 @endsection
