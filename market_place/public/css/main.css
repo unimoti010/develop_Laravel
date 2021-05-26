@@ -1,0 +1,12 @@
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+header {
+    background: #fafafa;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
