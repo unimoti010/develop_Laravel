@@ -89,13 +89,6 @@ class UserController extends Controller
     //退会
     public function destroy(User $user)
     {
-        ddd('test');
-
-        //ログアウト
-        // \Auth::user()->logout();
-        //データを消す
-        $user_id = \Auth::id();
-        $user = User::find($user_id);
         $user->delete();
         return redirect(route('home'));
     }

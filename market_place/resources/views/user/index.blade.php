@@ -5,12 +5,10 @@
 <!--ログイン後のホーム画面-->
 <p><a href="{{ route('users.edit', $user) }}">会員情報変更</a></p>
 
-
+<p><a href="{{ route('textbooks.index') }}">教科書一覧</a></p>
+<p><a href="{{ route('textbooks.create') }}">教科書登録</a></p>
+<p><a href="{{ route('register_histories.index') }}">登録履歴</a></p>
 <!--あとでリンク先を追加する-->
-<p><a href="">教科書登録</a></p>
-
-<p><a href="">登録履歴</a></p>
-
 <p><a href="">購入履歴</a></p>
 
 <p><a href="{{route('textbooks.index')}}">教科書一覧</a></p>
