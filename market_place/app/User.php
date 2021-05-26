@@ -41,4 +41,15 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Textbook::class, 'purchase_histories');
     }
+    
+    public function textbooks()
+    {
+        return $this->hasMany(Textbook::class);
+    }
+
+    public function register_histories()
+    {
+        return $this->belongsToMany(Textbook::class, 'register_histories');
+    }
+
 }

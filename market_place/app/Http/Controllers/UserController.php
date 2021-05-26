@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Textbook;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -14,7 +17,8 @@ class UserController extends Controller
     public function index()
     {
         $user = \Auth::user();
-        return view('user.index', ['user' => $user]);
+        $textbooks = Textbook::orderBy('price', 'desc')->get();
+        return view('user/index',['user' => $user, 'textbooks' => $textbooks ]);
     }
 
     /**
@@ -55,10 +59,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
         $user = \Auth::user();
-        return view('user/edit', ['user' => $user]);
+        return view('user/edit', ['user' => $user ]);
     }
 
     /**
@@ -70,8 +74,9 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        // ddd($request);
         $user->update($request->all());
-        return redirect(route('users', $user));
+        return view('user/index', ['user' => $user ]);
     }
 
     /**
@@ -82,18 +87,17 @@ class UserController extends Controller
      */
 
     //退会
-    public function destroy($id)
+    public function destroy(User $user)
     {
+        ddd('test');
+
         //ログアウト
-        \Auth::user()->logout();
+        // \Auth::user()->logout();
         //データを消す
-        $user = \Auth::id();
+        $user_id = \Auth::id();
+        $user = User::find($user_id);
         $user->delete();
         return redirect(route('home'));
     }
 
-    public function unsubscribe()
-    {
-        return view('user.unsubscribe');
-    }
 }
