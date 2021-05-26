@@ -29,7 +29,7 @@ class AuthServiceProvider extends ServiceProvider
             return $user->admin == 0;
          });
 
-         Gate::define('update-post', function ($user, $post) {
+         Gate::define('myData', function ($user, $post) {
             return $user->id === $post->user_id;
         });
 

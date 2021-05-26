@@ -14,10 +14,12 @@
 Route::get('/', 'Auth\LoginController@showLoginForm');
 Route::get('home', 'HomeController@index')->name('home');
 Route::resource('register_histories', 'RegisterHistoryController');
-Route::resource('textbooks', 'TextbookController');
 
 Route::get('register_histories','RegisterHistoryController@index')->name('register_histories.index');
 Route::get('register_histories/{textbook}','RegisterHistoryController@show')->name('register_histories.show');
+
+Route::resource('textbooks', 'TextbookController');
+Route::get('textbooks/store','TextbookController@store')->name('textbooks.store');
 Auth::routes();
 
 //会員情報画面関連

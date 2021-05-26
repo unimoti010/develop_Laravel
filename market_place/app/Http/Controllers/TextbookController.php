@@ -16,6 +16,7 @@ class TextbookController extends Controller
     public function index()
     {
         $textbooks = Textbook::orderBy('price', 'desc')->get();
+        $textbooks = Textbook::paginate(10);
         return view('textbooks.index', ['textbooks' => $textbooks]);
     }
     public function purchaseTable(Request $request)//purchase_histories tableに値追加
@@ -35,7 +36,7 @@ class TextbookController extends Controller
     public function create()
     {
         $textbook = new Textbook;
-        return view('textbooks/create', ['textbook' => $textbook]);
+        return view('textbooks.create', ['textbook' => $textbook]);
     }
 
     /**
