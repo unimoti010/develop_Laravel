@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','Auth\LoginController@showLoginForm');
 Route::get('home', 'HomeController@index')->name('home');
+// Route::get('/', 'HomeController@index')->name('home');
+// Route::get('logout', 'Auth\LoginController@logout');
 
 Auth::routes();
 
@@ -29,3 +29,8 @@ Route::post('purchase_histories/notification', 'PurchaseHistoryController@notifi
 Route::group(['middleware' => ['auth']], function (){
     Route::get('purchase_histories', 'PurchaseHistoryController@index')->name('purchase_histories.index');
 });
+Route::get('users/index', 'UserController@index')->name('users.index');
+Route::resource('users', 'UserController');
+
+
+Auth::routes();

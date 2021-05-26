@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-
-<h1>会員登録</h1>
- @include('commons/flash') 
-<form action="{{ route('register') }}" method="post">
+<h1>会員情報の変更</h1>
+{{-- @include('commons/flash') --}}
+<form action="{{-- route('users.update') --}}" method="post">
+    @method('put')
     @csrf
     <p>
         <label>名前</label><br>
         <input type="text" name="name" s value="{{ old('name') }}">
     </p>
     <p>
-        <label>電話番号（-をつけて入力）</label><br>
+        <label>電話番号</label><br>
         <input type="tel" name="tel" s value="{{ old('tel') }}">
     </p>
     <p>
@@ -31,18 +31,15 @@
         <input type="password" name="password_confirmation" value="">
     </p>
     <p>
-        <label>ユーザの種類</label><br>
-        <select name="admin">
-            <option value="0">会員</option>
-            <option value="1">管理者</option>
-        </select>
+        <a href="{{ route('users.edit') }}">変更</a> <!--あとで編集画面に戻るリンクに変更する-->
     </p>
     <p>
-        <button type="submit">会員登録</button>
-    </p>
-    <p>または</p>
-    <p>
-        <a href="{{ route('login') }}">ログイン</a>
+        <!--ボタンをクリックすると確認のポップアップを表示-->
+        <button id="unsubscribe">退会する</button>
+
+
     </p>
 </form>
+
+
 @endsection
