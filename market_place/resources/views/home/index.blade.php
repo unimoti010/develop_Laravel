@@ -23,5 +23,4 @@
     @csrf
     <input type="submit" value="ログアウト">
     
-</form>
 @endsection

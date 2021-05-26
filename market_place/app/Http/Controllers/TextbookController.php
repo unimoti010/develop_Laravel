@@ -24,8 +24,10 @@ class TextbookController extends Controller
         // $textbook = PurchaseHistory::create($request->all());
         $textbook_id = $request->id;
 
+        $textbook = Textbook::find($request->id);
         \Auth::user()->purchase_histories()->attach($textbook_id); 
-        return redirect(route('purchase_histories.index'));
+        return view('purchase/notification', ['textbooks' => [$textbook]] );
+        // return redirect(route('purchase_histories.index'));
     }
     /**
      * Show the form for creating a new resource.

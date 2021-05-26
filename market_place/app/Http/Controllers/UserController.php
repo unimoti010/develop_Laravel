@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Textbook;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -16,7 +17,8 @@ class UserController extends Controller
     public function index()
     {
         $user = \Auth::user();
-        return view('user/index',['user' => $user ]);
+        $textbooks = Textbook::orderBy('price', 'desc')->get();
+        return view('user/index',['user' => $user, 'textbooks' => $textbooks ]);
     }
 
     /**

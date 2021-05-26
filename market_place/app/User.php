@@ -37,6 +37,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function purchase_histories()
+    {
+        return $this->belongsToMany(Textbook::class, 'purchase_histories');
+    }
+    
     public function textbooks()
     {
         return $this->hasMany(Textbook::class);

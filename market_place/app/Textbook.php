@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Textbook extends Model
 {
+
     protected $fillable = ['title', 'price', 'author', 'publisher', 'category', 'state'];
     
     public function user()
@@ -22,4 +23,5 @@ class Textbook extends Model
     {
         return $this->belongsToMany(User::class, 'purchase_histories');
     }
+
 }

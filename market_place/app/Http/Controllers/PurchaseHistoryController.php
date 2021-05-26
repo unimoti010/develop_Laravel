@@ -11,7 +11,7 @@ class PurchaseHistoryController extends Controller
     {
         $textbooks = \Auth::user()->purchase_histories()
         ->orderby('created_at', 'desc')->paginate(20);
-        return view('purchase_histories/index', ['textbooks' => $textbooks]);
+        return view('purchase/index', ['textbooks' => $textbooks]);
     }
     public function notification(Request $request) //
     {
@@ -19,7 +19,7 @@ class PurchaseHistoryController extends Controller
 
         $textbook = Textbook::find($request->id);
 
-        return view('purchase.notification', ['textbooks' => [$textbook]]);
+        return view('purchase/notification', ['textbooks' => [$textbook]]);
     }
 
 
