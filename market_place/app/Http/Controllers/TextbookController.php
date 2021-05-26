@@ -102,6 +102,11 @@ class TextbookController extends Controller
             'state' => 'required'
         ]);
         $textbook->update($request->all());
+
+        //管理者が情報を編集して保存した際は教科書一覧に遷移
+        if(\Auth::user()->admin == 0){
+            return redirect(route('admin.allTextbooks'));
+        }
         return redirect(route('register_histories.show',$textbook));
     }
 
@@ -113,6 +118,11 @@ class TextbookController extends Controller
      */
     public function destroy(Textbook $textbook)
     {
+        //管理者が教科書を消す際は教科書一覧に遷移
+        if(\Auth::user()->admin == 0){
+            $textbook->delete();
+            return redirect(route('admin.allTextbooks'));
+        }
         $textbook->delete();
         return redirect(route('register_histories.index'));
     }

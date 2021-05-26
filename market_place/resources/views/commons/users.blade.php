@@ -18,8 +18,23 @@
                     <a href="{{ route('users.edit', $user) }}">編集</a>
                 </td>
                 <td>
-                    <a href="{{ route('users.destroy', $user) }}">削除</a>
+                    <a href="{{ route('users.destroy', $user) }}" onclick="deleteTextbook()">削除</a>
                 </td> 
+
+                {{-- 削除の実行 --}}
+                <form action="{{ route('users.destroy',$user) }}" method="post" id="delete-form">
+                    @csrf
+                    @method('delete')
+                </form>
+
+                    <script type="text/javascript">
+                        function deleteTextbook() {
+                            event.preventDefault();
+                            if (window.confirm('本当に削除しますか？')) {
+                                document.getElementById('delete-form').submit();
+                            }
+                        }
+                    </script>
             </tr> 
         @endforeach
     </tbody>

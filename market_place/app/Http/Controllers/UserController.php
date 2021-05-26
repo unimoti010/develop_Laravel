@@ -75,6 +75,13 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         // ddd($request);
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'tel' => 'required|string', //|regex:/\A0(\d\-\d{4}|\d{2}\-\d{3}|\d{3}\-\d{2})\-\d{4}\z/'
+            'email' => 'required|string|email|max:255', //|unique:users
+            'password' => 'required|string|min:8|confirmed',
+        ]);
         $user->update($request->all());
         return view('user/index', ['user' => $user ]);
     }
@@ -89,8 +96,16 @@ class UserController extends Controller
     //退会
     public function destroy(User $user)
     {
+        //管理者がユーザを削除する場合は会員一覧に遷移する
+        if(\Auth::user()->admin == 0){
+            $user->delete();
+            return redirect(route('admin.allUsers'));
+        }else{
+
         $user->delete();
         return redirect(route('home'));
+        }
+
     }
 
 }
