@@ -15,8 +15,7 @@ class TextbookController extends Controller
      */
     public function index()
     {
-        $textbooks = Textbook::orderBy('price', 'desc')->get();
-        $textbooks = Textbook::paginate(10);
+        $textbooks = Textbook::orderBy('price', 'desc')->paginate(10);
         return view('textbooks.index', ['textbooks' => $textbooks]);
     }
     public function purchaseTable(Request $request)//purchase_histories tableに値追加
