@@ -29,6 +29,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->admin == 0;
          });
 
+         Gate::define('update-post', function ($user, $post) {
+            return $user->id === $post->user_id;
+        });
+
         Gate::resource('administrators', 'App\Policies\administratorsPolicy');
     }
 }
