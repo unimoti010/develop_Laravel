@@ -18,7 +18,15 @@ class TextbookController extends Controller
         $textbooks = Textbook::orderBy('price', 'desc')->get();
         return view('textbooks.index', ['textbooks' => $textbooks]);
     }
+    public function purchaseTable(Request $request)//purchase_histories tableに値追加
+    {
+        // ddd($request);
+        // $textbook = PurchaseHistory::create($request->all());
+        $textbook_id = $request->id;
 
+        \Auth::user()->purchase_histories()->attach($textbook_id); 
+        return redirect(route('purchase_histories.index'));
+    }
     /**
      * Show the form for creating a new resource.
      *

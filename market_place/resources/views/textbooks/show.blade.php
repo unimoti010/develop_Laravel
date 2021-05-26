@@ -2,9 +2,11 @@
 
 @section('content')
 <h1>詳細情報</h1>
-<form action="purchase.blade.php" method="GET">
-    {{-- 送信先のパスどうする --}}
+{{-- <form action="{{ route('purchase_histories.notification') }}" method="post">  --}}
+<form action="{{ route('textbooks.purchaseTable') }}" method="post">
     @csrf
+    <input type="hidden" value="{{$textbook->id}}" name="id"/>
+
     <button type="submit">購入</button>
 </form>
 
