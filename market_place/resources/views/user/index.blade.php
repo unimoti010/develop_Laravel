@@ -11,7 +11,7 @@
 <!--あとでリンク先を追加する-->
 <p><a href="">購入履歴</a></p>
 
-<p><a href="{{route('textbooks.index')}}">教科書一覧</a></p>
+{{-- <p><a href="{{route('textbooks.index')}}">教科書一覧</a></p> --}}
 
 {{--p.126参照--}}
 <form id="logout-form" action="{{ route('logout') }}" method="POST">
