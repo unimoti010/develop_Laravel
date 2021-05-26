@@ -22,11 +22,12 @@ Route::group(['middleware' => ['auth', 'can:isAdmin']], function () {
     Route::get('admin/allTextbooks', 'AdminController@allTextbooks')->name('admin.allTextbooks');
 });
 
+Route::get('register_histories','RegisterHistoryController@index')->name('register_histories.index');
+Route::get('register_histories/{textbook}','RegisterHistoryController@show')->name('register_histories.show');
+Route::resource('textbooks','TextbookController');
 Auth::routes();
 
 //会員情報画面関連
 Route::get('user/index', 'UserController@index')->name('users.index');
 Route::resource('users', 'UserController');
 
-Route::get('register_histories','RegisterHistoryController@index')->name('register_histories.index');
-Route::resource('textbooks','TextbookController');
