@@ -13,9 +13,9 @@
     <tbody>
         @foreach($textbooks as $textbook)
             <tr>
-                <td>{{$textbook->title}}</td>
-                <td>{{ $textbook->price}}</td>
-                <td>{{ $textbook->purchase_history->created_at}}</td> 
+                <td>{{$textbook->textbook->title}}</td>
+                <td>{{ $textbook->textbook->price}}</td>
+                <td>{{ $textbook->created_at}}</td> 
             </tr>
         @endforeach
     </tbody>
