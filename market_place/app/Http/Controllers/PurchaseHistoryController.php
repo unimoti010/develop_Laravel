@@ -4,15 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Textbook;
-use App\PurchaseHistories;
+use App\PurchaseHistory;
+use Illuminate\Database\Query\Builder;
 
 class PurchaseHistoryController extends Controller
 {
     public function index()
     {
-        $textbooks = \Auth::user()->purchase_histories()
-        ->orderby('created_at', 'desc')->paginate(20);
+        // $textbooks = \Auth::user()->purchase_histories()
+        // ->orderby('created_at', 'desc')->paginate(20);
+
+        // $textbooks = PurchaseHistory::with('textbook')->get();
+
+        $textbooks = Textbook::with([
+            'purchase_history'=> function (Builder $query){
+                $query->where('user_id', '=', \Auth::id());}])->paginate(20);
+
+        // $textbooks = PurchaseHistory::all()->textbook()->where('user_id', '=', \Auth::id() )->paginate(20);
+
         
+        ddd($textbooks);
         return view('purchase/index', ['textbooks' => $textbooks]);
     }
     public function notification(Request $request) //
