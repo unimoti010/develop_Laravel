@@ -23,3 +23,10 @@ Route::group(['middleware' => ['auth', 'can:isAdmin']], function () {
 });
 
 Auth::routes();
+
+//会員情報画面関連
+Route::get('user/index', 'UserController@index')->name('users.index');
+Route::resource('users', 'UserController');
+
+Route::get('register_histories','RegisterHistoryController@index')->name('register_histories.index');
+Route::resource('textbooks','TextbookController');

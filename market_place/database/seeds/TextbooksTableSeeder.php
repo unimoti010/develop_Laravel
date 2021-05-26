@@ -11,6 +11,7 @@ class TextbooksTableSeeder extends Seeder
      */
     public function run()
     {
+
         for ($i=1; $i < 30; $i++) { 
             $textbook = new \App\Textbook([
                 'title'      => 'サンプル' . $i,

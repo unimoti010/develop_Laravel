@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class RegisterHistory extends Model
 {
-  /*  public function textbook()
+    public function textbook()
     {
         return $this->hasOne(Textbook::class);
     }
@@ -14,5 +14,5 @@ class RegisterHistory extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    } */
+    } 
 }

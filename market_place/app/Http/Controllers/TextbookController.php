@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Textbook;
+use App\User;
 
 class TextbookController extends Controller
 {
@@ -37,11 +38,17 @@ class TextbookController extends Controller
      */
     public function store(Request $request)
     {
-        $textbook = $request->user()->textbooks()->create($request->all());
-        //register_historiesにも保存（動作未確認）
-       /* $textbook_id = $inputs['id'];
-        $user = new User;
-        $user->textbooks()->attach($textbook_id); */
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'category' => 'required',
+            'author' => 'required|max:30',
+            'publisher' => 'required|max:30',
+            'price' => 'required',
+            'state' => 'required'
+        ]);
+        $textbook = Textbook::create($request->all());
+        $textbook_id = $textbook->id;
+        \Auth::user()->register_histories()->attach($textbook_id); 
         return redirect(route('register_histories.index'));
     }
 
@@ -76,6 +83,14 @@ class TextbookController extends Controller
      */
     public function update(Request $request, Textbook $textbook)
     {
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'category' => 'required',
+            'author' => 'required|max:30',
+            'publisher' => 'required|max:30',
+            'price' => 'required',
+            'state' => 'required'
+        ]);
         $textbook->update($request->all());
         return redirect(route('textbooks.show',$textbook));
     }
@@ -89,6 +104,6 @@ class TextbookController extends Controller
     public function destroy(Textbook $textbook)
     {
         $textbook->delete();
-        return redirect(route('textbooks.index'));
+        return redirect(route('register_histories.index'));
     }
 }

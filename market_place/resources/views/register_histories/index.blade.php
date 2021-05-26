@@ -7,25 +7,19 @@
 <table>
     <thead>
         <tr>
-            <th>投稿者</th>
-            <th>タイトル</th>
-            <th>著者</th>
-            <th>出版社</th>
+            <th>題名</th>
+            <th>価格</th>
+            <th>登録日時</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($register_histories as $register_history)
+        @foreach($textbooks as $textbook)
          <tr>
-            <td>
-                <!-- register_historiesコントローラに渡して、詳細を表示 -->
-             <!--   <a href="{{ route('textbook.show', $register_history->textbook_id) }}">
-                    {{ $register_history->textbook->title }}
-                </a>-->
-            </td>
-            <td>{{ $register_history->textbook->price }}</td>
-            <td>{{ $register_history->created_at }}</td>
+         <td><a href="{{route('textbooks.show', $textbook->id)}}">{{$textbook->title}}</a></td>
+            <td>{{ $textbook->price }}</td> 
+            <td>{{ $textbook->created_at }}</td> 
          </tr>
          @endforeach
     </tbody>
 </table>
-{{ $register_histories->links() }}
+{{ $textbooks->links() }}
