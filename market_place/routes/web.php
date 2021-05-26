@@ -13,7 +13,7 @@
 
 Route::get('/', 'Auth\LoginController@showLoginForm');
 Route::get('home', 'HomeController@index')->name('home');
-Route::resource('register_histories', 'RegisterHistoryController');
+//Route::resource('register_histories', 'RegisterHistoryController');
 
 Route::get('register_histories','RegisterHistoryController@index')->name('register_histories.index');
 Route::get('register_histories/{textbook}','RegisterHistoryController@show')->name('register_histories.show');

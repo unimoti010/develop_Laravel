@@ -14,6 +14,7 @@
 <body>
     <header>
         <div class="container">
+            <!-- リンクの指定をどうするか -->
             <a class="brand" href="/">{{ config('app.name')}}</a>
         </div>
     </header>
