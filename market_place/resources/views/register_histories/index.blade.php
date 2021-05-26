@@ -22,4 +22,8 @@
          @endforeach
     </tbody>
 </table>
+
 {{ $textbooks->links() }}
+
+
+@endsection
