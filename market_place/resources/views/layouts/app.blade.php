@@ -16,6 +16,11 @@
         <div class="container">
             <a class="brand" href="/">{{ config('app.name')}}</a>
         </div>
+        @auth
+        <dt>
+            ようこそ{{Auth::user()->name}}さん
+        </dt>
+        @endauth
     </header>
     <main>
         <div class="container">

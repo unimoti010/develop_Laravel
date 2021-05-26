@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -29,8 +30,8 @@ class AuthServiceProvider extends ServiceProvider
             return $user->admin == 0;
          });
 
-         Gate::define('myData', function ($user, $post) {
-            return $user->id === $post->user_id;
+         Gate::define('myData', function ($user) {
+            return $user->id === Auth::user()->id;
         });
 
         Gate::resource('administrators', 'App\Policies\administratorsPolicy');

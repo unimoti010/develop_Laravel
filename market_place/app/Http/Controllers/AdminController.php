@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\RegisterHistory;
 use App\User;
 use App\Textbook;
 use Illuminate\Http\Request;

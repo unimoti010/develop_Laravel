@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Textbook;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Gate;
+use Illuminate\Auth\Access\Gate as AccessGate;
 
 class UserController extends Controller
 {
@@ -61,8 +64,11 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $user = \Auth::user();
-        return view('user/edit', ['user' => $user ]);
+        if(Gate::allows('isAdmin') || Gate::allows('myData')){
+            return view('user.edit', ['user' => $user]);
+        } else {
+            return redirect('home');
+        }
     }
 
     /**
@@ -74,8 +80,16 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->update($request->all());
-        return view('user.index', ['user' => $user ]);
+        if(Gate::allows('isAdmin') || Gate::allows('myData')){
+            $user = \Auth::user()->update([
+                'name' => $request->name,
+                'address' => $request->address,
+                'tel' => $request->tel,
+                'email' => $request->email,
+                'password' => Hash::make($request['password']),
+            ]);
+        }
+        return redirect(route('home'));
     }
 
     /**

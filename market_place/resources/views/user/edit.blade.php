@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>会員情報の変更</h1>
-@include('commons/flash')
+@include('commons.flash')
 <form action="{{ route('users.update', $user) }}" method="post">
     @csrf
     @method('put')
@@ -48,8 +48,7 @@
             event.preventDefault();
             if(window.confirm("本当に退会しますか？")){
                 document.getElementById("delete-form1").submit();
-                alert("退会が完了しました。\nご利用ありがとうございました。");
-                // window.location.href = "http://localhost:8000/home";                
+                alert("退会が完了しました。\nご利用ありがとうございました。");      
             } else {
             window.alert("退会をキャンセルしました。");
             }
