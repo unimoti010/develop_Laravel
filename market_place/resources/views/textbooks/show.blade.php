@@ -2,13 +2,15 @@
 
 @section('content')
 <h1>詳細情報</h1>
-{{-- <form action="{{ route('purchase_histories.notification') }}" method="post">  --}}
+
+@if($register_history->user_id != Auth::id())
 <form action="{{ route('textbooks.purchaseTable') }}" method="post">
     @csrf
     <input type="hidden" value="{{$textbook->id}}" name="id"/>
 
     <button type="submit">購入</button>
 </form>
+@endif
 
 <dl>
     <dt>タイトル</dt>
@@ -25,6 +27,7 @@
     <dd>{{ $textbook->state }}</dd>
 </dl>
 
+@if($register_history->user_id == Auth::id())
  <p>
     <a href="{{ route('textbooks.edit', $textbook) }}">編集</a>
     |
@@ -45,5 +48,6 @@
         }
     </script>
 </p> 
+@endif
 
 @endsection
