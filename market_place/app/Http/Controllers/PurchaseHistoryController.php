@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Textbook;
+use App\PurchaseHistories;
 
 class PurchaseHistoryController extends Controller
 {
@@ -11,6 +12,7 @@ class PurchaseHistoryController extends Controller
     {
         $textbooks = \Auth::user()->purchase_histories()
         ->orderby('created_at', 'desc')->paginate(20);
+        
         return view('purchase/index', ['textbooks' => $textbooks]);
     }
     public function notification(Request $request) //

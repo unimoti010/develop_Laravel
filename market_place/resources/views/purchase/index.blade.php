@@ -15,8 +15,7 @@
             <tr>
                 <td>{{$textbook->title}}</td>
                 <td>{{ $textbook->price}}</td>
-                <td>{{ $textbook->created_at}}</td> 
-                {{-- このままだとテキストブックモデルのcreated atになる。purchase modelで新たに変数定義？ --}}
+                <td>{{ $textbook->purchase_history->created_at}}</td> 
             </tr>
         @endforeach
     </tbody>
