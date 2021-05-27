@@ -40,4 +40,4 @@
         @endforeach
     </tbody>
 </table>
-{{ $textbooks->links() }}
+{{ $textbooks->appends(Request::all())->links() }}
