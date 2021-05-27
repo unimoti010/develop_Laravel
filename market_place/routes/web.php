@@ -23,7 +23,7 @@ Route::post('purchase_histories/notification', 'PurchaseHistoryController@notifi
 
 //認証ミドルウェア
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('textbooks/store', 'TextbookController@store')->name('textbooks.store');
+    Route::post('textbooks/store', 'TextbookController@store')->name('textbooks.store'); //元の記述はget
     Route::post('textbooks', 'TextbookController@purchaseTable')->name('textbooks.purchaseTable');
     Route::resource('register_histories', 'RegisterHistoryController');
     Route::get('register_histories', 'RegisterHistoryController@index')->name('register_histories.index');

@@ -52,7 +52,7 @@ class TextbookController extends Controller
             'category' => 'required',
             'author' => 'required|max:30',
             'publisher' => 'required|max:30',
-            'price' => 'required',
+            'price' => ['required','regex:/^[0-9]{1,9}$/'],
             'state' => 'required'
         ]);
         $textbook = Textbook::create($request->all());
@@ -100,7 +100,7 @@ class TextbookController extends Controller
             'category' => 'required',
             'author' => 'required|max:30',
             'publisher' => 'required|max:30',
-            'price' => 'required',
+            'price' => ['required','regex:/^[0-9]{1,9}$/'],
             'state' => 'required'
         ]);
         $textbook->update($request->all());
@@ -109,7 +109,7 @@ class TextbookController extends Controller
         if(\Auth::user()->admin == 0){
             return redirect(route('admin.allTextbooks'));
         }
-        return redirect(route('register_histories.show',$textbook));
+        return redirect(route('textbooks.show',$textbook));
     }
 
     /**
