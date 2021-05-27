@@ -73,6 +73,8 @@ class TextbookController extends Controller
     public function show(Textbook $textbook)
     {
         $register_history = RegisterHistory::where('textbook_id', $textbook->id)->first();
+        // ddd($register_history);
+
         return view('textbooks.show', ['textbook' => $textbook, 'register_history' => $register_history]);
     }
 
