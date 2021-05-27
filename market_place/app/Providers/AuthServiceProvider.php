@@ -33,7 +33,5 @@ class AuthServiceProvider extends ServiceProvider
          Gate::define('myData', function ($user) {
             return $user->id === Auth::user()->id;
         });
-
-        Gate::resource('administrators', 'App\Policies\administratorsPolicy');
     }
 }
