@@ -3,6 +3,7 @@
 @section('content')
 <h1>詳細情報</h1>
 
+@cannot('isAdmin')
 @if($register_history->user_id != Auth::id())
 <form action="{{ route('textbooks.purchaseTable') }}" method="post">
     @csrf
@@ -11,6 +12,7 @@
     <button type="submit">購入</button>
 </form>
 @endif
+@endcannot
 
 <dl>
     <dt>タイトル</dt>
@@ -26,27 +28,28 @@
     <dt>状態</dt>
     <dd>{{ $textbook->state }}</dd>
 </dl>
+
 @if($register_history->user_id == Auth::id())
-    <a href="{{ route('textbooks.edit', $textbook) }}">編集</a>
-    |
-    <a href="{{ route('textbooks.destroy', $textbook) }}" onclick="deleteTextbook()">削除</a>
+<a href="{{ route('textbooks.edit', $textbook) }}">編集</a>
+|
+<a href="{{ route('textbooks.destroy', $textbook) }}" onclick="deleteTextbook()">削除</a>
 @endif
 
-    {{-- 削除の実行 --}}
-    <form action="{{ route('textbooks.destroy',$textbook) }}" method="post" id="delete-form">
-        @csrf
-        @method('delete')
-        <input type="hidden" name="textbook_id" value="{{ $textbook->id }}">
-    </form>
+{{-- 削除の実行 --}}
+<form action="{{ route('textbooks.destroy',$textbook) }}" method="post" id="delete-form">
+    @csrf
+    @method('delete')
+    <input type="hidden" name="textbook_id" value="{{ $textbook->id }}">
+</form>
 
-    <script type="text/javascript">
-        function deleteTextbook() {
+<script type="text/javascript">
+    function deleteTextbook() {
             event.preventDefault();
             if (window.confirm('本当に削除しますか？')) {
                 document.getElementById('delete-form').submit();
             }
         }
-    </script>
+</script>
 </p>
 
 @endsection

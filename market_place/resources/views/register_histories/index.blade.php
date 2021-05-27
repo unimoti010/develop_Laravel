@@ -3,8 +3,7 @@
 @section('content')
 <h1>登録履歴</h1>
 
-<!-- 登録履歴一覧をregister_historiesテーブルから表示 -->
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>題名</th>
@@ -15,7 +14,7 @@
     <tbody>
         @foreach($textbooks as $textbook)
          <tr>
-         <td><a href="{{route('register_histories.show', $textbook->id)}}">{{$textbook->title}}</a></td>
+         <td><a href="{{route('textbooks.show', $textbook->id)}}">{{$textbook->title}}</a></td>
             <td>{{ $textbook->price }}</td> 
             <td>{{ $textbook->created_at }}</td> 
          </tr>

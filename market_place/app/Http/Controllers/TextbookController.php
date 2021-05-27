@@ -22,14 +22,11 @@ class TextbookController extends Controller
     }
     public function purchaseTable(Request $request)//purchase_histories tableに値追加
     {
-        // ddd($request);
-        // $textbook = PurchaseHistory::create($request->all());
         $textbook_id = $request->id;
 
         $textbook = Textbook::find($request->id);
         \Auth::user()->purchase_histories()->attach($textbook_id); 
         return view('purchase/notification', ['textbooks' => [$textbook]] );
-        // return redirect(route('purchase_histories.index'));
     }
     /**
      * Show the form for creating a new resource.
@@ -55,7 +52,7 @@ class TextbookController extends Controller
             'category' => 'required',
             'author' => 'required|max:30',
             'publisher' => 'required|max:30',
-            'price' => 'required',
+            'price' => ['required','regex:/^[0-9]{1,9}$/'],
             'state' => 'required'
         ]);
         $textbook = Textbook::create($request->all());
@@ -103,7 +100,7 @@ class TextbookController extends Controller
             'category' => 'required',
             'author' => 'required|max:30',
             'publisher' => 'required|max:30',
-            'price' => 'required',
+            'price' => ['required','regex:/^[0-9]{1,9}$/'],
             'state' => 'required'
         ]);
         $textbook->update($request->all());
@@ -112,7 +109,7 @@ class TextbookController extends Controller
         if(\Auth::user()->admin == 0){
             return redirect(route('admin.allTextbooks'));
         }
-        return redirect(route('register_histories.show',$textbook));
+        return redirect(route('textbooks.show',$textbook));
     }
 
     /**

@@ -8,17 +8,17 @@
         <dt>カテゴリ</dt>
         <dd>
             <select name="category">
-                <option value="文学部系">文学部系</option>
-                <option value="教育学部系">教育学部系</option>
-                <option value="法学部系">法学部系</option>
-                <option value="社会学部系">社会学部系</option>
-                <option value="経済学部系">経済学部系</option>
-                <option value="理学部系">理学部系</option>
-                <option value="医学部系">医学部系</option>
-                <option value="歯学部系">歯学部系</option>
-                <option value="薬学部系">薬学部系</option>
-                <option value="工学部系">工学部系</option>
-                <option value="農学部系">農学部系</option>
+                <option value="文学部系" @if(old('category')=='文学部系') selected  @endif {{ $textbook->category =='文学部系'?'selected':''}}>文学部系</option>
+                <option value="教育学部系" @if(old('category')=='教育学部系') selected  @endif {{ $textbook->category =='教育学部系'?'selected':''}}>教育学部系</option>
+                <option value="法学部系" @if(old('category')=='法学部系') selected  @endif {{ $textbook->category =='法学部系'?'selected':''}}>法学部系</option>
+                <option value="社会学部系" @if(old('category')=='社会学部系') selected  @endif {{ $textbook->category =='社会学部系'?'selected':''}}>社会学部系</option>
+                <option value="経済学部系" @if(old('category')=='経済学部系') selected  @endif {{ $textbook->category =='経済学部系'?'selected':''}}>経済学部系</option>
+                <option value="理学部系" @if(old('category')=='理学部系') selected  @endif {{ $textbook->category =='理学部系'?'selected':''}}>理学部系</option>
+                <option value="医学部系" @if(old('category')=='医学部系') selected  @endif {{ $textbook->category =='医学部系'?'selected':''}}>医学部系</option>
+                <option value="歯学部系" @if(old('category')=='歯学部系') selected  @endif {{ $textbook->category =='歯学部系'?'selected':''}}>歯学部系</option>
+                <option value="薬学部系" @if(old('category')=='薬学部系') selected  @endif {{ $textbook->category =='薬学部系'?'selected':''}}>薬学部系</option>
+                <option value="工学部系" @if(old('category')=='工学部系') selected  @endif {{ $textbook->category =='工学部系'?'selected':''}}>工学部系</option>
+                <option value="農学部系" @if(old('category')=='農学部系') selected  @endif {{ $textbook->category =='農学部系'?'selected':''}}>農学部系</option>
             </select>
         </dd>
 
@@ -40,11 +40,11 @@
         <dt>状態</dt>
         <dd>
         <select name="state">
-                <option value="非常に良い">非常に良い</option>
-                <option value="良い">良い</option>
-                <option value="どちらでもない">どちらでもない</option>
-                <option value="悪い">悪い</option>
-                <option value="非常に悪い">非常に悪い</option>
+                <option value="非常に良い" @if(old('state')=='非常に良い') selected  @endif {{ $textbook->state =='非常に良い'?'selected':''}}>非常に良い</option>
+                <option value="良い" @if(old('state')=='良い') selected  @endif {{ $textbook->state =='良い'?'selected':''}}>良い</option>
+                <option value="どちらでもない" @if(old('state')=='どちらでもない') selected  @endif {{ $textbook->state =='どちらでもない'?'selected':''}}>どちらでもない</option>
+                <option value="悪い" @if(old('state')=='悪い') selected  @endif {{ $textbook->state =='悪い'?'selected':''}}>悪い</option>
+                <option value="非常に悪い" @if(old('state')=='非常に悪い') selected  @endif {{ $textbook->state =='非常に悪い'?'selected':''}}>非常に悪い</option>
             </select>
         </dd>
     </dl>

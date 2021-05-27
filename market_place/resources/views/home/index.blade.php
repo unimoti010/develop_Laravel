@@ -20,6 +20,7 @@
 <p><a href="{{ route('textbooks.index') }}">教科書一覧</a></p>
 <p><a href="{{ route('textbooks.create') }}">教科書登録</a></p>
 <p><a href="{{ route('register_histories.index') }}">登録履歴</a></p>
+<p><a href="{{ route('purchase_histories.index') }}">購入履歴</a></p>
 @endcannot
 <form action="{{ route('logout') }}" method="post">
     @csrf
