@@ -13,14 +13,9 @@
     <tbody>
         @foreach($textbooks as $textbook)
             <tr>
-                <td><a href="{{route('textbooks.show', $textbook->id)}}">{{$textbook->title}}</a></td>
+                <td>{{$textbook->title}}</td>
                 <td>{{ $textbook->author }}</td>
                 <td>{{ $textbook->price }}</td>
-                @can('isAdmin')
-                <td>
-                    <a href="{{ route('textbooks.edit', $textbook) }}">編集</a>
-                </td>
-                @endcan
             </tr>
         @endforeach
     </tbody>

@@ -48,3 +48,5 @@
         <!-- <input type="text" name="state" value="{{ request('state') }}"> -->
     </dd>
 </dl>
+
+<button type="submit">検索</button>

@@ -13,12 +13,16 @@
     </thead>
     <tbody>
         @foreach($textbooks as $textbook)
-         <tr>
-         <td><a href="{{route('textbooks.show', $textbook->id)}}">{{$textbook->title}}</a></td>
-            <td>{{ $textbook->price }}</td> 
-            <td>{{ $textbook->created_at }}</td> 
-         </tr>
-         @endforeach
+        <tr>
+            <td>{{ $textbook->title }}</td>
+            <td>{{ $textbook->price }}</td>
+            <td>{{ $textbook->created_at }}</td>
+
+            <td>
+                <a href="{{ route('textbooks.show', $textbook->id) }}">詳細</a>
+            </td>
+        </tr>
+        @endforeach
     </tbody>
 </table>
 {{ $textbooks->links() }}
