@@ -16,9 +16,11 @@
 
 @auth
 <p><a href="{{ route('users.edit', $user) }}">会員情報変更</a></p>
+@cannot('isAdmin')
 <p><a href="{{ route('textbooks.index') }}">教科書一覧</a></p>
 <p><a href="{{ route('textbooks.create') }}">教科書登録</a></p>
 <p><a href="{{ route('register_histories.index') }}">登録履歴</a></p>
+@endcannot
 <form action="{{ route('logout') }}" method="post">
     @csrf
     <input type="submit" value="ログアウト">
