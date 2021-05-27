@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Gate;
 use Illuminate\Auth\Access\Gate as AccessGate;
+use App\Http\Requests\AdminRequest;
 
 class UserController extends Controller
 {
@@ -78,18 +79,29 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(AdminRequest $request, User $user)
     {
-        if(Gate::allows('isAdmin') || Gate::allows('myData')){
-            $user = \Auth::user()->update([
+        if(Gate::allows('isAdmin')){
+            $user->update([
                 'name' => $request->name,
                 'address' => $request->address,
                 'tel' => $request->tel,
                 'email' => $request->email,
                 'password' => Hash::make($request['password']),
             ]);
+            return redirect('admin/allUsers');
+        } elseif (Gate::allows('myData')){
+            $user->update([
+                'name' => $request->name,
+                'address' => $request->address,
+                'tel' => $request->tel,
+                'email' => $request->email,
+                'password' => Hash::make($request['password']),
+            ]);
+            return redirect('/');
+        } else {
+            return redirect('/');
         }
-        return redirect(route('home'));
     }
 
     /**
@@ -102,7 +114,9 @@ class UserController extends Controller
     //退会
     public function destroy(User $user)
     {
-        $user->delete();
+        if(Gate::allows('isAdmin') || Gate::allows('myData')){
+            $user->delete();
+        }
         return redirect(route('home'));
     }
 

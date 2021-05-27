@@ -35,13 +35,16 @@
     </p>
 </form>
     <p>
-    <!--退会処理・・・クリックすると確認のポップアップを表示-->
-    <a href="" onclick="deleteUser()">退会する</a>
-    <form action="{{ route('users.destroy', $user->id) }}" method="post" id="delete-form1">
-        @csrf
-        @method('delete')
-        <input type="hidden" name="user_id" value="{{ $user->id }}">
-    </form>     
+        @can('isAdmin')
+            <a href="" onclick="deleteUser()">削除する</a>
+        @else
+            <a href="" onclick="deleteUser()">退会する</a>
+        @endcan
+        <form action="{{ route('users.destroy', $user->id) }}" method="post" id="delete-form1">
+            @csrf
+            @method('delete')
+            <input type="hidden" name="user_id" value="{{ $user->id }}">
+        </form>     
     </p>
     <script type="text/javascript">
         function deleteUser(){
@@ -53,7 +56,7 @@
             window.alert("退会をキャンセルしました。");
             }
         }
-    </script>              
+    </script>
     
 
 @endsection
