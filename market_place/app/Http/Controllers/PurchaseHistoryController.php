@@ -17,9 +17,15 @@ class PurchaseHistoryController extends Controller
         
         // $textbooks = Textbook::whereHas('purchase_history', function($query){
         // $query->where('user_id', '=', \Auth::id());})->paginate(20);
-        $textbooks = DB::select('select title, price, purchase_histories.created_at from textbooks join purchase_histories on textbooks.id = purchase_histories.textbook_id where purchase_histories.user_id = ' .\Auth::id());
+        $textbooks = DB::select('select title, price, purchase_histories.created_at from textbooks 
+        join purchase_histories on textbooks.id = purchase_histories.textbook_id 
+        where purchase_histories.user_id = ' .\Auth::id(). ' order by purchase_histories.created_at desc ');
+
         $dbh = DB::connection()->getPdo();
-        $stmt = $dbh->prepare('select title, price, purchase_histories.created_at from textbooks join purchase_histories on textbooks.id = purchase_histories.textbook_id where purchase_histories.user_id = ' .\Auth::id());
+        $stmt = $dbh->prepare('select title, price, purchase_histories.created_at from textbooks 
+        join purchase_histories on textbooks.id = purchase_histories.textbook_id 
+        where purchase_histories.user_id = ' .\Auth::id(). ' order by purchase_histories.created_at desc ');
+
         $stmt->execute();
         $saved_info = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // ddd($saved_info);
