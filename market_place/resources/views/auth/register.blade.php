@@ -8,27 +8,27 @@
     @csrf
     <p>
         <label>名前</label><br>
-        <input type="text" name="name" s value="{{ old('name') }}">
+        <input type="text" name="name" s value="{{ old('name') }}" placeholder="例：山田太郎">
     </p>
     <p>
-        <label>電話番号（-をつけて入力）</label><br>
-        <input type="tel" name="tel" s value="{{ old('tel') }}">
+        <label>電話番号</label><br>
+        <input type="tel" name="tel" s value="{{ old('tel') }}" placeholder="例：000-0000-0000">
     </p>
     <p>
         <label>住所</label><br>
-        <input type="address" name="address" s value="{{ old('address') }}">
+        <input type="address" name="address" s value="{{ old('address') }}" placeholder="例：東京都新宿区">
     </p>
     <p>
         <label>メールアドレス</label><br>
-        <input type="email" name="email" value="{{ old('email') }}">
+        <input type="email" name="email" value="{{ old('email') }}" placeholder="例：xxx@xxx.xxx">
     </p>
     <p>
         <label>パスワード</label><br>
-        <input type="password" name="password" value="">
+        <input type="password" name="password" value="" placeholder="8文字以上で入力">
     </p>
     <p>
         <label>パスワード確認</label><br>
-        <input type="password" name="password_confirmation" value="">
+        <input type="password" name="password_confirmation" value="" placeholder="パスワードを再度入力">
     </p>
     <p>
         <label>ユーザの種類</label><br>
