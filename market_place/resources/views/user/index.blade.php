@@ -23,7 +23,7 @@
         event.preventDefault();
         if(window.confirm('ログアウトしますか？')){
             document.getElementById('logout-form').submit();
-            window.location.href = "http://localhost:8000";
+            window.location.href = '/';
             //ログイン前ホームに遷移
         }
     }

@@ -13,13 +13,13 @@
     <tbody>
         @foreach($textbooks as $textbook)
             <tr>
-                <td>{{$textbook->title}}</td>
-                <td>{{ $textbook->price}}</td>
-                <td>{{ $textbook->created_at}}</td>
+                <td>{{ $textbook['title']}}</td>
+                <td>{{ $textbook['price']}}</td>
+                <td>{{ $textbook['created_at']}}</td> 
             </tr>
         @endforeach
     </tbody>
 </table>
-{{ $textbooks->links() }}        
+{{-- {{ $textbooks->links() }}         --}}
 
 @endsection

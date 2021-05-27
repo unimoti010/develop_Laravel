@@ -11,7 +11,7 @@ class Textbook extends Model
     
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
 
     public function register_histories()
@@ -19,9 +19,9 @@ class Textbook extends Model
         return $this->belongsToMany(User::class, 'register_histories');
     }
 
-    public function purchase_histories()
+    public function purchase_history()
     {
-        return $this->belongsToMany(User::class, 'purchase_histories');
+        return $this->belongsTo(PurchaseHistory::class);
     }
 
 }

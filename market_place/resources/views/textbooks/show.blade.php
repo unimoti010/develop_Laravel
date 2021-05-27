@@ -2,13 +2,15 @@
 
 @section('content')
 <h1>詳細情報</h1>
-{{-- <form action="{{ route('purchase_histories.notification') }}" method="post">  --}}
+
+@if($register_history->user_id != Auth::id())
 <form action="{{ route('textbooks.purchaseTable') }}" method="post">
     @csrf
-    <input type="hidden" value="{{$textbook->id}}" name="id"/>
+    <input type="hidden" value="{{$textbook->id}}" name="id" />
 
     <button type="submit">購入</button>
 </form>
+@endif
 
 <dl>
     <dt>タイトル</dt>
@@ -24,17 +26,17 @@
     <dt>状態</dt>
     <dd>{{ $textbook->state }}</dd>
 </dl>
-
- {{-- <p>
+<p>
     <a href="{{ route('textbooks.edit', $textbook) }}">編集</a>
     |
     <a href="{{ route('textbooks.destroy', $textbook) }}" onclick="deleteTextbook()">削除</a>
 
-{{-- 削除の実行 --}}
-<form action="{{ route('textbooks.destroy',$textbook) }}" method="post" id="delete-form">
-    @csrf
-    @method('delete')
-</form>
+    {{-- 削除の実行 --}}
+    <form action="{{ route('textbooks.destroy',$textbook) }}" method="post" id="delete-form">
+        @csrf
+        @method('delete')
+        <input type="hidden" name="textbook_id" value="{{ $textbook->id }}">
+    </form>
 
     <script type="text/javascript">
         function deleteTextbook() {
@@ -44,6 +46,6 @@
             }
         }
     </script>
-</p>  --}}
+</p>
 
 @endsection

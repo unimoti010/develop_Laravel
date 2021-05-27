@@ -39,12 +39,12 @@ class User extends Authenticatable
 
     public function purchase_histories()
     {
-        return $this->belongsToMany(Textbook::class, 'purchase_histories');
+        return $this->belongsToMany(Textbook::class, 'purchase_histories')->withTimestamps();
     }
     
     public function textbooks()
     {
-        return $this->hasMany(Textbook::class);
+        return $this->belongsToMany(Textbook::class);
     }
 
     public function register_histories()
