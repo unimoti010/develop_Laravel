@@ -25,9 +25,10 @@
                 @endcan
 
                 {{-- 削除の実行 --}}
-                <form action="{{ route('textbooks.destroy',$textbook) }}" method="post" id="delete-form">
+                <form action="{{ route('textbooks.destroy', $textbook->id) }}" method="post" id="delete-form">
                     @csrf
                     @method('delete')
+                    <input type="hidden" value="{{ $textbook->id }}">
                 </form>
 
                     <script type="text/javascript">
