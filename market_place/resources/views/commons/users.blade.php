@@ -21,4 +21,4 @@
         @endforeach
     </tbody>
 </table>
-{{ $users->links() }}
+{{ $users->appends(Request::all())->links() }}

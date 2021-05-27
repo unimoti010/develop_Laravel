@@ -8,27 +8,27 @@
     @method('put')
     <p>
         <label>名前</label><br>
-        <input type="text" name="name"  value="{{ old('name', $user->name) }}">
+        <input type="text" name="name"  value="{{ old('name', $user->name) }}" placeholder="例：山田太郎">
     </p>
     <p>
         <label>電話番号</label><br>
-        <input type="tel" name="tel" value="{{ old('tel', $user->tel) }}">
+        <input type="tel" name="tel" value="{{ old('tel', $user->tel) }}" placeholder="例：000-0000-0000">
     </p>
     <p>
         <label>住所</label><br>
-        <input type="address" name="address" value="{{ old('address', $user->address) }}">
+        <input type="address" name="address" value="{{ old('address', $user->address) }}" placeholder="例：東京都新宿区">
     </p>
     <p>
         <label>メールアドレス</label><br>
-        <input type="email" name="email" value="{{ old('email', $user->email) }}">
+        <input type="email" name="email" value="{{ old('email', $user->email) }}" placeholder="例：xxx@xxx.xxx">
     </p>
     <p>
         <label>パスワード</label><br>
-        <input type="password" name="password" value="">
+        <input type="password" name="password" value="" placeholder="8文字以上で入力">
     </p>
     <p>
         <label>パスワード確認</label><br>
-        <input type="password" name="password_confirmation" value="">
+        <input type="password" name="password_confirmation" value="" placeholder="パスワードを再度入力">
     </p>
     <p>
         <button type="submit">変更する</button>
