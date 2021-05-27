@@ -78,11 +78,17 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
-            'tel' => 'required|string', //|regex:/\A0(\d\-\d{4}|\d{2}\-\d{3}|\d{3}\-\d{2})\-\d{4}\z/'
-            'email' => 'required|string|email|max:255', //|unique:users
+            'tel' => ['required', 'string', 'regex:/^0\d{2,3}-\d{1,4}-\d{4}$/'],
+            'email' => 'required|string|email|max:255|unique:users,email,'.Auth::user()->email.',email',
             'password' => 'required|string|min:8|confirmed',
         ]);
         $user->update($request->all());
+
+        //管理者なら会員一覧ページに遷移
+        if(\Auth::user()->admin == 0){
+            return redirect(route('admin.allUsers'));
+        }
+
         return view('user/index', ['user' => $user ]);
     }
 
