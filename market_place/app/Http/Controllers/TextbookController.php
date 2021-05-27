@@ -47,6 +47,7 @@ class TextbookController extends Controller
      */
     public function store(Request $request)
     {
+        // ddd('hoge');
         $this->validate($request, [
             'title' => 'required|max:50',
             'category' => 'required',
