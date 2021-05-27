@@ -15,9 +15,31 @@ class TextbookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $textbooks = Textbook::orderBy('price', 'desc')->paginate(10);
+        $query = Textbook::query();
+        if ($request->title) {
+            $query->where('title', 'LIKE', '%' . $request->title. '%');
+        }
+        if ($request->category) {
+            $query->where('category', 'LIKE', '%' . $request->category. '%');
+        }
+        if ($request->author) {
+            $query->where('author', 'LIKE', '%' . $request->author. '%');
+        }
+        if ($request->publisher) {
+            $query->where('publisher', 'LIKE', '%' . $request->publisher. '%');
+        }
+        if ($request->price_min) {
+            $query->where('price', '>=', $request->price_min);
+        }
+        if ($request->price_max) {
+            $query->where('price', '<=', $request->price_max);
+        }
+        if ($request->state) {
+            $query->where('state', 'LIKE', '%' . $request->state. '%');
+        }
+        $textbooks = $query->orderBy('created_at', 'desc')->paginate(10);
         return view('textbooks.index', ['textbooks' => $textbooks]);
     }
     public function purchaseTable(Request $request)//purchase_histories tableに値追加

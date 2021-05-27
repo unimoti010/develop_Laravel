@@ -45,7 +45,6 @@
                 <option value="悪い" {{ request('state')=='悪い'?'selected':''}}>悪い</option>
                 <option value="非常に悪い" {{ request('state')=='非常に悪い'?'selected':''}}>非常に悪い</option>
             </select>
-        <!-- <input type="text" name="state" value="{{ request('state') }}"> -->
     </dd>
 </dl>
 
