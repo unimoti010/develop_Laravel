@@ -16,11 +16,11 @@
     <dt>状態</dt>
     <dd>{{ $textbook->state }}</dd>
 </dl>
-
-  <p>
+@can('myData')    
     <a href="{{ route('textbooks.edit', $textbook) }}">編集</a>
     |
     <a href="{{ route('textbooks.destroy', $textbook) }}" onclick="deleteTextbook()">削除</a>
+@endcan
 
 {{-- 削除の実行 --}}
 <form action="{{ route('textbooks.destroy',$textbook) }}" method="post" id="delete-form">

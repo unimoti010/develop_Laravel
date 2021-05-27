@@ -9,7 +9,7 @@
     <tbody>
         @foreach($textbooks as $textbook)
             <tr>
-                <td>{{ $textbook->title }}</td>
+                <td><a href="{{route('textbooks.show', $textbook->id)}}">{{$textbook->title}}</a></td>
                 <td>{{ $textbook->author }}</td>
                 <td>{{ $textbook->price }}</td>
                 @can('isAdmin')

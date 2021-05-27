@@ -33,8 +33,8 @@
     <p>
         <label>ユーザの種類</label><br>
         <select name="admin">
-            <option value="0">会員</option>
-            <option value="1">管理者</option>
+            <option value="1">会員</option>
+            <option value="0">管理者</option>
         </select>
     </p>
     <p>

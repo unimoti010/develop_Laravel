@@ -6,6 +6,7 @@
 @include('commons/flash')
 <form action="{{ route('textbooks.store') }}" method="post">
     @include('textbooks/form')
+    @method('put')
     <button type="submit">登録</button>
 </form>
 @endsection
