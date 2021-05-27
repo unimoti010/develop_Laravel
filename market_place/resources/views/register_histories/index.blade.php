@@ -23,3 +23,5 @@
     </tbody>
 </table>
 {{ $textbooks->links() }}
+
+@endsection

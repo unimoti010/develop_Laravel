@@ -12,17 +12,17 @@ class AdminController extends Controller
     public function allUsers(Request $request)
     {
         $query = User::query();
-        if ($request->title) {
-            $query->where('title', 'LIKE', '%' . $request->title. '%');
+        if ($request->name) {
+            $query->where('name', 'LIKE', '%' . $request->name. '%');
         }
-        if ($request->category) {
-            $query->where('category', 'LIKE', '%' . $request->category. '%');
+        if ($request->address) {
+            $query->where('address', 'LIKE', '%' . $request->address. '%');
         }
-        if ($request->publisher) {
-            $query->where('title', 'LIKE', '%' . $request->publisher. '%');
+        if ($request->tel) {
+            $query->where('tel', 'LIKE', '%' . $request->tel. '%');
         }
-        if ($request->author) {
-            $query->where('author', 'LIKE', '%' . $request->author. '%');
+        if ($request->email) {
+            $query->where('email', 'LIKE', '%' . $request->email. '%');
         }
         if ($request->admin) {
             $query->where('admin', '!=', $request->admin);

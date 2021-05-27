@@ -81,6 +81,14 @@ class UserController extends Controller
      */
     public function update(AdminRequest $request, User $user)
     {
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'tel' => ['required', 'string', 'regex:/^0\d{2,3}-\d{1,4}-\d{4}$/'],
+            'email' => 'required|string|email|max:255|',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+        
         if(Gate::allows('isAdmin')){
             $user->update([
                 'name' => $request->name,
@@ -114,10 +122,15 @@ class UserController extends Controller
     //退会
     public function destroy(User $user)
     {
-        if(Gate::allows('isAdmin') || Gate::allows('myData')){
+        if(Gate::allows('isAdmin')){
             $user->delete();
+            return redirect(route('admin.allUsers'));
+        } elseif (Gate::allows('myData')){
+            $user->delete();
+            return redirect(route('home'));
+        } else {
+            return redirect(route('home'));
         }
-        return redirect(route('home'));
     }
 
 }
