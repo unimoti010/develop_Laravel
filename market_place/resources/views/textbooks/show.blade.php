@@ -29,7 +29,7 @@
     <dd>{{ $textbook->state }}</dd>
 </dl>
 
-@if($register_history->user_id == Auth::id())
+@if($register_history->user_id == Auth::id() || Gate::allows('isAdmin'))
 <a href="{{ route('textbooks.edit', $textbook) }}">編集</a>
 |
 <a href="{{ route('textbooks.destroy', $textbook) }}" onclick="deleteTextbook()">削除</a>
