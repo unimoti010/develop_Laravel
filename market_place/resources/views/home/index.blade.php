@@ -12,8 +12,10 @@
 @guest
 <ul class="beforelogin">
     <li><a href="{{ route('register') }}" class="btn btn-outline-primary">新規会員登録</a></li>
-    <li><a href="{{ route('login') }}" class="btn btn-outline-primary" >ログイン</a></li>
+    <li><a href="{{ route('login') }}" class="btn btn-outline-primary">ログイン</a></li>
 </ul>
+<video autoplay muted playsinline src="/images/textbook3-1.mp4" loop autoplay muted
+ width="1200px" height="500px"></video>
 @endguest
 
 {{-- ログイン後 --}}
@@ -25,6 +27,12 @@
 <p><a href="{{ route('register_histories.index') }}" class="btn btn-outline-primary">登録履歴</a></p>
 <p><a href="{{ route('purchase_histories.index') }}" class="btn btn-outline-primary">購入履歴</a></p>
 @endcannot
+<video autoplay muted playsinline src="/images/study1.mp4" loop autoplay muted
+ width="400px"></video>
+<video autoplay muted playsinline src="/images/textbook1.mp4" loop autoplay muted
+ width="400px"></video>
+
+
 <form action="{{ route('logout') }}" method="post">
     @csrf
     <input type="submit" class="btn btn-warning" value="ログアウト">
