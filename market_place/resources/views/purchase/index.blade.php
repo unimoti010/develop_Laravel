@@ -7,7 +7,7 @@
             <th>タイトル</th>
             <th>価格</th>
             <th>購入日時</th>
-
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +20,5 @@
         @endforeach
     </tbody>
 </table>
-{{-- {{ $textbooks->links() }}         --}}
 
 @endsection

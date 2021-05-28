@@ -5,6 +5,7 @@
             <th>住所</th>
             <th>電話番号</th>
             <th>メールアドレス</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
