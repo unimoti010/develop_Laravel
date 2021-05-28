@@ -2,18 +2,6 @@
 
 @section('content')
 
-<<<<<<< HEAD
-{{-- 管理者のみ --}}
-@can('isAdmin')
-<p><a href="{{ route('admin.allUsers') }}" class="btn btn-outline-primary">会員一覧</a></p>
-<p><a href="{{ route('admin.allTextbooks') }}" class="btn btn-outline-primary">教科書一覧</a></p>
-@endcan
-
-{{-- ログイン前のみ --}}
-@guest
-
-=======
->>>>>>> f0e496127ff5cdc40f6658f6a7b513b5dc20da7b
 <style>
     ul {
         font-size: 140%;
