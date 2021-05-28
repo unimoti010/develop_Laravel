@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>詳細情報</h1>
+<h1 data-en="Book">詳細情報</h1>
 
 @cannot('isAdmin')
 @if($register_history->user_id != Auth::id())
@@ -14,7 +14,7 @@
 @endif
 @endcannot
 
-<dl>
+<dl class="faq">
     <dt>タイトル</dt>
     <dd>{{ $textbook->title }}</dd>
     <dt>カテゴリ</dt>
