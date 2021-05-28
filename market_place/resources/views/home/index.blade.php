@@ -2,6 +2,24 @@
 
 @section('content')
 
+<style>
+    ul {
+        font-size: 140%;
+        display: flex;
+        list-style: none;
+        margin-left: auto;
+        margin-right: auto; 
+    }
+    li {
+        color: #ffffff;
+        text-align: center;
+        border: solid 3px #ffffff;
+        padding: 10px 30px;
+        color: #ffffff
+    }
+    
+</style>
+
 {{-- 管理者のみ --}}
 @can('isAdmin')
 <p><a href="{{ route('admin.allUsers') }}" class="btn btn-outline-primary">会員一覧</a></p>
@@ -10,8 +28,14 @@
 
 {{-- ログイン前のみ --}}
 @guest
-<p><a href="{{ route('register') }}" class="btn btn-outline-primary">新規会員登録</a></p>
-<p><a href="{{ route('login') }}" class="btn btn-outline-primary" >ログイン</a></p>
+<div>
+    <ul>
+      <li><a href="{{ route('register') }}" class="btn btn-outline-primary">新規会員登録</a></li>
+      <li><a href="{{ route('login') }}" class="btn btn-outline-primary">ログイン</a></li>
+    </ul>
+  </div>
+  <video autoplay muted playsinline src="/images/textbook3-1.mp4" loop autoplay muted
+ width="1200px" height="500px"></video>
 @endguest
 
 @auth
