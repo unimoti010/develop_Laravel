@@ -4,6 +4,7 @@
             <th>タイトル</th>
             <th>著者</th>
             <th>価格</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
