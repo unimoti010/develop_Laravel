@@ -46,6 +46,19 @@
             <input type="hidden" name="user_id" value="{{ $user->id }}">
         </form>     
     </p>
+    @can('isAdmin')
+    <script type="text/javascript">
+        function deleteUser(){
+            event.preventDefault();
+            if(window.confirm("本当に削除しますか？")){
+                document.getElementById("delete-form1").submit();
+                alert("削除が完了しました。");      
+            } else {
+            window.alert("削除をキャンセルしました。");
+            }
+        }
+    </script>
+    @else
     <script type="text/javascript">
         function deleteUser(){
             event.preventDefault();
@@ -57,6 +70,8 @@
             }
         }
     </script>
+    @endcan
+    
     
 
 @endsection
