@@ -6,13 +6,13 @@
 <form action="{{ route('login') }}" method="post">
     @csrf
     <p>
-        <label>メールアドレス<br>
-        <input type="email" name="email" value="{{ old('email') }}"></label>
+        <label class="form-label">メールアドレス<br>
+        <input type="email" class="form-control" name="email" value="{{ old('email') }}"></label>
     </p>
 
     <p>
-        <label>パスワード<br>
-        <input type="password" name="password" value=""></label>
+        <label class="form-label">パスワード<br>
+        <input type="password" class="form-control" name="password" value=""></label>
     </p>
 
     <p>
