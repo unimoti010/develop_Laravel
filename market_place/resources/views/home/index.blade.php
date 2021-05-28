@@ -12,6 +12,7 @@
 @guest
 <style>
     ul {
+        font-size: 140%;
         display: flex;
         list-style: none;
         margin-left: auto;
@@ -23,7 +24,6 @@
         border: solid 3px #ffffff;
         padding: 10px 30px;
         color: #ffffff
-
     }
     
 </style>
