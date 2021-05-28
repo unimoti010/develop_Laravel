@@ -1,11 +1,11 @@
 <dl>
     <dt>教科書名</dt>
     <dd>
-        <input type="text" name="title" value="{{ request('title') }}" placeholder="教科書名">
+        <input class="form-control" type="text" name="title" value="{{ request('title') }}" placeholder="教科書名">
     </dd>
     <dt>カテゴリ</dt>
     <dd>
-        <select name="category" value="{{ request('category') }}">
+        <select class="form-select" name="category" value="{{ request('category') }}">
                 <option value=""></option>
                 <option value="文学部系">文学部系</option>
                 <option value="教育学部系" {{ request('category')=='教育学部系'?'selected':''}}>教育学部系</option>
@@ -23,21 +23,21 @@
     </dd>
     <dt>著者名</dt>
     <dd>
-        <input type="text" name="author" value="{{ request('author')}}" placeholder="著者名">
+        <input class="form-control" type="text" name="author" value="{{ request('author')}}" placeholder="著者名">
     </dd>
     <dt>出版社</dt>
     <dd>
-        <input type="text" name="publisher" value="{{request('publisher')}}" placeholder="出版社">
+        <input class="form-control" type="text" name="publisher" value="{{request('publisher')}}" placeholder="出版社">
     </dd>
     <dt>価格</dt>
     <dd>
-        <input type="number" name="price_min" value="{{ request('price_min') }}" placeholder="円">
+        <input class="form-control" type="number" name="price_min" value="{{ request('price_min') }}" placeholder="円">
         〜
-        <input type="number" name="price_max" value="{{ request('price_max') }}" placeholder="円">
+        <input class="form-control" type="number" name="price_max" value="{{ request('price_max') }}" placeholder="円">
     </dd>
     <dt>本の状態</dt>
     <dd>
-        <select name="state">
+        <select class="form-control" name="state">
                 <option value=""></option>
                 <option value="非常に良い" {{ request('state')=='非常に良い'?'selected':''}}>非常に良い</option>
                 <option value="良い" {{ request('state')=='良い'?'selected':''}}>良い</option>
