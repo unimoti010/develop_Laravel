@@ -48,4 +48,4 @@
     </dd>
 </dl>
 
-<button type="submit">検索</button>
+<button type="submit" class="btn btn-primary">検索</button>
