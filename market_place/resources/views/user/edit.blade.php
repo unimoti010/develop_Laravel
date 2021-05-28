@@ -16,7 +16,7 @@
     </p>
     <p>
         <label>住所</label><br>
-        <input type="address" name="address" value="{{ old('address', $user->address) }}" placeholder="例：東京都新宿区">
+        <textarea type="address" name="address" rows="3" placeholder="例：東京都新宿区">{{ old('address', $user->address) }}</textarea>
     </p>
     <p>
         <label>メールアドレス</label><br>
