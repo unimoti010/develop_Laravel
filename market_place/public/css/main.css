@@ -1,7 +1,4 @@
-.beforeloginhome {
-    //
-}
-/* body {
+    body {
         font-size: 120%;
         background-image: url("images/textbook2.jpg");
         background-repeat: no-repeat;
@@ -11,4 +8,20 @@
     p{
         padding-top: 20px;
         line-height: 160%;
-    } */
+    }
+    .beforelogin {
+        font-size: 140%;
+        display: flex;
+        list-style: none;
+        margin-left: auto;
+        margin-right: auto; 
+    }
+    .beforelogin .li {
+        color: #ffffff;
+        text-align: center;
+        border: solid 3px #ffffff;
+        padding: 10px 30px;
+        color: #ffffff
+    }
+    
+    

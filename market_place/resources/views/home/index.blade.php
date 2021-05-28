@@ -10,10 +10,10 @@
 
 {{-- ログイン前のみ --}}
 @guest
-<div id="beforeloginhome">
-    <p><a href="{{ route('register') }}" class="btn btn-outline-primary">新規会員登録</a></p>
-    <p><a href="{{ route('login') }}" class="btn btn-outline-primary" >ログイン</a></p>
-</div>
+<ul class="beforelogin">
+    <li><a href="{{ route('register') }}" class="btn btn-outline-primary">新規会員登録</a></li>
+    <li><a href="{{ route('login') }}" class="btn btn-outline-primary" >ログイン</a></li>
+</ul>
 @endguest
 
 {{-- ログイン後 --}}
