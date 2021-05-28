@@ -16,7 +16,7 @@
     </p>
     <p>
         <label class="form-label">住所</label><br>
-        <textarea type="address" class="form-control" name="address" rows="3" value="{{ old('address') }}" placeholder="例：東京都新宿区"></textarea>
+        <textarea type="address" class="form-control" name="address" rows="3" placeholder="例：東京都新宿区">{{ old('address') }}</textarea>
     </p>
     <p>
         <label class="form-label">メールアドレス</label><br>
