@@ -29,8 +29,12 @@
 @endcannot
 <video autoplay muted playsinline src="/images/study1.mp4" loop autoplay muted
  width="400px"></video>
+<img src="" width="400px" height="225px">
+<br>
 <video autoplay muted playsinline src="/images/textbook1.mp4" loop autoplay muted
  width="400px"></video>
+<img src="" width="400px" height="225px">
+
 
 
 <form action="{{ route('logout') }}" method="post">
