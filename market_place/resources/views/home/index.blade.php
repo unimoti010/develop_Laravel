@@ -24,7 +24,7 @@
 @endcannot
 <form action="{{ route('logout') }}" method="post">
     @csrf
-    <input type="submit" class="btn btn-outline-primary" value="ログアウト">
+    <input type="submit" class="btn btn-warning" value="ログアウト">
 @endauth
 
 @endsection
