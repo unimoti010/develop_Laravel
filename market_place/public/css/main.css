@@ -5,21 +5,17 @@ html{
 .container {
     padding: 10px;
 }
+.beforelogin {
+    text-align: center;
+}
+.video1home {
+    text-align: center;
+}
 
-/* ホーム画面 */
-.home {
-        font-size: 140%;
-        display: flex;
-        list-style: none;
-        margin-left: auto;
-        margin-right: auto; 
-    }
-.home li {
-        color: #ffffff;
-        text-align: center;
-        border: solid 3px #ffffff;
-        padding: 10px 30px;
-        color: #ffffff
-    }
+.video2home {
+    text-align: center;
+}
+.userinfoedit {
+    margin-top: 20px;
 
-
+}
