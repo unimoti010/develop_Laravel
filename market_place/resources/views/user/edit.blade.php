@@ -7,28 +7,28 @@
     @csrf
     @method('put')
     <p>
-        <label>名前</label><br>
-        <input type="text" name="name"  value="{{ old('name', $user->name) }}" placeholder="例：山田太郎">
+        <label>名前 <span class="badge bg-danger">必須</span></label><br>
+        <input type="text" class="form-control" name="name"  value="{{ old('name', $user->name) }}" placeholder="例：山田太郎">
     </p>
     <p>
-        <label>電話番号</label><br>
-        <input type="tel" name="tel" value="{{ old('tel', $user->tel) }}" placeholder="例：000-0000-0000">
+        <label>電話番号 <span class="badge bg-danger">必須</span></label><br>
+        <input type="tel" class="form-control" name="tel" value="{{ old('tel', $user->tel) }}" placeholder="例：000-0000-0000">
     </p>
     <p>
-        <label>住所</label><br>
-        <textarea type="address" name="address" rows="3" placeholder="例：東京都新宿区">{{ old('address', $user->address) }}</textarea>
+        <label>住所 <span class="badge bg-danger">必須</span></label><br>
+        <textarea type="address" class="form-control" name="address" rows="3" placeholder="例：東京都新宿区">{{ old('address', $user->address) }}</textarea>
     </p>
     <p>
-        <label>メールアドレス</label><br>
-        <input type="email" name="email" value="{{ old('email', $user->email) }}" placeholder="例：xxx@xxx.xxx">
+        <label>メールアドレス <span class="badge bg-danger">必須</span></label><br>
+        <input type="email" class="form-control" name="email" value="{{ old('email', $user->email) }}" placeholder="例：xxx@xxx.xxx">
     </p>
     <p>
-        <label>パスワード</label><br>
-        <input type="password" name="password" value="" placeholder="8文字以上で入力">
+        <label>パスワード <span class="badge bg-danger">必須</span></label><br>
+        <input type="password" class="form-control" name="password" value="" placeholder="8文字以上で入力">
     </p>
     <p>
-        <label>パスワード確認</label><br>
-        <input type="password" name="password_confirmation" value="" placeholder="パスワードを再度入力">
+        <label>パスワード確認 <span class="badge bg-danger">必須</span></label><br>
+        <input type="password" class="form-control" name="password_confirmation" value="" placeholder="パスワードを再度入力">
     </p>
     <p>
         <button type="submit">変更する</button>

@@ -15,12 +15,8 @@
         <input type="password" class="form-control" name="password" value=""></label>
     </p>
 
-    <p>
-        <button type="submit">ログイン</button>
-    </p>
-    <p>または</p>
-    <p>
-        <a href="{{ route('register') }}">会員登録</a>
-    </p>
+    <button type="submit" class="btn btn-primary border">ログイン</button><br><br>
+    <span> または </span>
+    <a href="{{ route('register') }}" class="btn btn-secondary border">会員登録</a>
 </form>
 @endsection

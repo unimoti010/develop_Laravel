@@ -7,6 +7,6 @@
  <form action="{{ route('textbooks.update',$textbook) }}" method="post"> 
     @method('put')
     @include('textbooks/form')
-    <button type="submit">更新</button>
+    <button type="submit" class="btn btn-primary">更新</button>
  </form> 
 @endsection

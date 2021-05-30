@@ -2,12 +2,12 @@
     <dl>
         <dt>題名</dt>
         <dd>
-            <input type="text" name="title" value="{{ old('title', $textbook->title) }}">
+            <input type="text" class="form-control" name="title" value="{{ old('title', $textbook->title) }}">
         </dd>
 
         <dt>カテゴリ</dt>
         <dd>
-            <select name="category">
+            <select class="form-control" name="category">
                 <option value="文学部系" @if(old('category')=='文学部系') selected  @endif {{ $textbook->category =='文学部系'?'selected':''}}>文学部系</option>
                 <option value="教育学部系" @if(old('category')=='教育学部系') selected  @endif {{ $textbook->category =='教育学部系'?'selected':''}}>教育学部系</option>
                 <option value="法学部系" @if(old('category')=='法学部系') selected  @endif {{ $textbook->category =='法学部系'?'selected':''}}>法学部系</option>
@@ -24,22 +24,22 @@
 
         <dt>著者名</dt>
         <dd>
-            <input type="text" name="author" value="{{ old('author', $textbook->author) }}">
+            <input type="text" class="form-control" name="author" value="{{ old('author', $textbook->author) }}">
         </dd>
 
         <dt>出版社名</dt>
         <dd>
-            <input type="text" name="publisher" value="{{ old('publisher', $textbook->publisher) }}">
+            <input type="text" class="form-control" name="publisher" value="{{ old('publisher', $textbook->publisher) }}">
         </dd>
 
         <dt>価格</dt>
         <dd>
-            <input type="number" name="price" value="{{ old('price', $textbook->price) }}">
+            <input type="number" class="form-control" name="price" value="{{ old('price', $textbook->price) }}">
         </dd>
 
         <dt>状態</dt>
         <dd>
-        <select name="state">
+        <select class="form-control" name="state">
                 <option value="非常に良い" @if(old('state')=='非常に良い') selected  @endif {{ $textbook->state =='非常に良い'?'selected':''}}>非常に良い</option>
                 <option value="良い" @if(old('state')=='良い') selected  @endif {{ $textbook->state =='良い'?'selected':''}}>良い</option>
                 <option value="どちらでもない" @if(old('state')=='どちらでもない') selected  @endif {{ $textbook->state =='どちらでもない'?'selected':''}}>どちらでもない</option>

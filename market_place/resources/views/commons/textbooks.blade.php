@@ -14,7 +14,7 @@
                 <td>{{ $textbook->author }}</td>
                 <td>{{ $textbook->price }}</td>
                 <td>
-                    <a href="{{ route('textbooks.show', $textbook->id) }}">詳細</a>
+                    <a href="{{ route('textbooks.show', $textbook->id) }}" class="btn btn-primary">詳細</a>
                 </td>
             </tr>
         @endforeach

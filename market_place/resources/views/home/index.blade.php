@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+{{-- @section('content') --}}
 
 {{-- 管理者のみ --}}
 {{-- @can('isAdmin')
@@ -10,6 +10,7 @@
 
 {{-- ログイン前のみ --}}
 @guest
+@section('guest')
 <div class="beforelogin">
     <p>商品のご登録・ご購入には、<a href="{{ route('register') }}">会員登録</a>が必要です</p>
     <p>既にアカウントをお持ちの方は、<a href="{{ route('login') }}">こちら</a>から</p>
@@ -24,6 +25,7 @@
 
 {{-- ログイン後 --}}
 @auth
+@section('home')
 {{-- <p><a href="{{ route('users.edit', $user) }}" class="btn btn-outline-primary">会員情報変更</a></p>
 @cannot('isAdmin')
 <p><a href="{{ route('textbooks.index') }}" class="btn btn-outline-primary">教科書一覧</a></p>
@@ -31,7 +33,6 @@
 <p><a href="{{ route('register_histories.index') }}" class="btn btn-outline-primary">登録履歴</a></p>
 <p><a href="{{ route('purchase_histories.index') }}" class="btn btn-outline-primary">購入履歴</a></p>
 @endcannot --}}
-
 
 
 <div class="video2home">

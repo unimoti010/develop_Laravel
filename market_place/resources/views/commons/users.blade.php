@@ -16,7 +16,7 @@
                 <td>{{ $user->tel }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    <a href="{{ route('users.edit', $user) }}">編集</a>
+                    <a href="{{ route('users.edit', $user) }}" class="btn btn-primary">編集</a>
                 </td>
             </tr> 
         @endforeach
