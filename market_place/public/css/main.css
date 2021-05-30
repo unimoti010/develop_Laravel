@@ -5,5 +5,17 @@ html{
 .container {
     padding: 10px;
 }
+.beforelogin {
+    text-align: center;
+}
+.video1home {
+    text-align: center;
+}
 
+.video2home {
+    text-align: center;
+}
+.userinfoedit {
+    margin-top: 20px;
 
+}

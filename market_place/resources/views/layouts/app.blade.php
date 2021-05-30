@@ -126,7 +126,6 @@
                 @endauth
             </div>
         </div>
-
     </header>
     <main>
         <div class="container">
