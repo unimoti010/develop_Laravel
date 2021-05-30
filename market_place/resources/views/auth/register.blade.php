@@ -41,6 +41,6 @@
 
         <button type="submit" class="btn btn-primary border">会員登録</button><br><br>
         <span> または </span>
-        <a href="{{ route('login') }}" class="btn btn-secondary border">会員登録</a>
+        <a href="{{ route('login') }}" class="btn btn-secondary border">ログイン</a>
     </form>
 @endsection

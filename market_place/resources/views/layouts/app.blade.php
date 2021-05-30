@@ -9,10 +9,10 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/test.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/css/dldtdd.css">
 </head>
 <style>
     body {
@@ -28,7 +28,7 @@
     }
 
     .logo {
-        margin: 0.5em auto;
+        margin: 0.2em auto;
         display: block;
     }
 
@@ -53,6 +53,8 @@
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
         integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous">
     </script> --}}
+    <script src="{{ asset('/js/test.js') }}"></script>
+
     <header>
 
         <nav class="navbar navbar-expand-lg bg-white border border-2 p-1">
@@ -77,7 +79,9 @@
 
         <nav class="navbar navbar-dark app-main">
             <div class="container">
-                <a class="btn btn-outline-dark logo" href="/">{{ config('app.name') }}</a>
+                <a class="btn btn-outline-light logo" href="/">
+                    <h2>{{ config('app.name') }}</h2>
+                </a>
             </div>
         </nav>
 
@@ -110,11 +114,34 @@
                     @endcannot
                 </div>
             </div>
-        @endauth
-    </div>
+        </div>
+    @endauth
     <main>
         <div class="container">
             @yield('content')
+        </div>
+        <div class="centerer">
+            <h1>Just Some More</h1>
+            <h1>Button Hover Effects</h1>
+            <h4>By: <a href="http://kylebrumm.com" target="_blank">Kyle Brumm</a></h4>
+
+            <div class="wrap">
+                <a class="btn-0" href="#">Swipe</a>
+                <a class="btn-1" href="#">Diagonal Swipe</a>
+                <a class="btn-1-2" href="#">Double Swipe</a>
+                <a class="btn-2" href="#">Diagonal Close</a>
+                <a class="btn-3" href="#"><span>Zoning In</span></a>
+                <a class="btn-4" href="#"><span>4 Corners</span></a>
+                <a class="btn-5" href="#">Slice</a>
+            </div>
+            <div class="wrap">
+                <a class="btn-6" href="#">Position Aware<span></span></a>
+                <a class="btn-7" href="#"><span>Alternate</span></a>
+                <a class="btn-8" href="#">Smoosh</a>
+                <a class="btn-9" href="#"><span>Vertical Overlap</span></a>
+                <a class="btn-10" href="#"><span>Horizontal Overlap</span></a>
+                <a class="btn-11" href="#">Collision</a>
+            </div>
         </div>
         @yield('guest')
         @yield('home')

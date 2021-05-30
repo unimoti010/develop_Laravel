@@ -31,14 +31,14 @@
         <input type="password" class="form-control" name="password_confirmation" value="" placeholder="パスワードを再度入力">
     </p>
     <p>
-        <button type="submit">変更する</button>
+        <button type="submit" class="btn btn-primary border-start border-end">変更する</button>
     </p>
 </form>
     <p>
         @can('isAdmin')
-            <a href="" onclick="deleteUser()">削除する</a>
+            <a href="" onclick="deleteUser()" class="btn btn-secondary border-start border-end">削除する</a>
         @else
-            <a href="" onclick="deleteUser()">退会する</a>
+            <a href="" onclick="deleteUser()" class="btn btn-secondary border-start border-end">退会する</a>
         @endcan
         <form action="{{ route('users.destroy', $user->id) }}" method="post" id="delete-form1">
             @csrf

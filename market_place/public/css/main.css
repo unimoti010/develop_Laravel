@@ -1,13 +1,16 @@
-html{
+html {
     font-size: 100%;
     line-height: 3;
 }
+
 .container {
     padding: 10px;
 }
+
 .beforelogin {
     text-align: center;
 }
+
 .video1home {
     text-align: center;
 }
@@ -15,7 +18,53 @@ html{
 .video2home {
     text-align: center;
 }
+
 .userinfoedit {
     margin-top: 20px;
+}
 
+h1 {
+    position: relative;
+    /*相対位置*/
+    line-height: 1.4;
+    /*行高*/
+    color: #7b6459;
+    /*文字色*/
+    font-size: 24px;
+    /* 文字サイズ指定 */
+    font-weight: normal;
+    /* 文字の太さ調整 */
+    margin-bottom: 15px;
+    /* 周りの余白指定 */
+    border-bottom: solid 4px rgba(76, 175, 80, 0.6);
+    /* 線指定 */
+    border-radius: 0px 0px 160px 180px/0px 0px 20px 4px;
+    /* 角丸指定 */
+}
+
+h1:first-letter {
+    font-size: 2em;
+    color: #7172ac;
+}
+
+.faq {
+    background: #F6F6F6;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.faq dt {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px dotted;
+    font-weight: bold;
+    color: #7172ac;
+}
+
+.faq dd {
+    margin-bottom: 2em;
+}
+
+.faq dd:last-child {
+    margin-bottom: 0;
 }

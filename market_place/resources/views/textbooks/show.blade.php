@@ -32,7 +32,7 @@
     @if ($register_history->user_id == Auth::id() || Gate::allows('isAdmin'))
         <div class="btn-group" role="group">
             <a href="{{ route('textbooks.edit', $textbook) }}" class="btn btn-primary border-start border-end">編集</a>
-            <a href="{{ route('textbooks.destroy', $textbook) }}" class="btn btn-primary border-start border-end" onclick="deleteTextbook()">削除</a>
+            <a href="{{ route('textbooks.destroy', $textbook) }}" class="btn btn-secondary border-start border-end" onclick="deleteTextbook()">削除</a>
         </div>
     @endif
 

@@ -1,32 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>詳細情報</h1>
-<dl>
-    <dt>タイトル</dt>
-    <dd>{{ $textbook->title }}</dd>
-    <dt>カテゴリ</dt>
-    <dd>{{ $textbook->category }}</dd>
-    <dt>著者</dt>
-    <dd>{{ $textbook->author }}</dd>
-    <dt>出版社</dt>
-    <dd>{{ $textbook->publisher }}</dd>
-    <dt>価格</dt>
-    <dd>{{ $textbook->price }}</dd>
-    <dt>状態</dt>
-    <dd>{{ $textbook->state }}</dd>
-</dl>
-@can('myData')    
-    <a href="{{ route('textbooks.edit', $textbook) }}">編集</a>
-    |
-    <a href="{{ route('textbooks.destroy', $textbook) }}" onclick="deleteTextbook()">削除</a>
-@endcan
+    <h1>詳細情報</h1>
+    <dl>
+        <dt>タイトル</dt>
+        <dd>{{ $textbook->title }}</dd>
+        <dt>カテゴリ</dt>
+        <dd>{{ $textbook->category }}</dd>
+        <dt>著者</dt>
+        <dd>{{ $textbook->author }}</dd>
+        <dt>出版社</dt>
+        <dd>{{ $textbook->publisher }}</dd>
+        <dt>価格</dt>
+        <dd>{{ $textbook->price }}</dd>
+        <dt>状態</dt>
+        <dd>{{ $textbook->state }}</dd>
+    </dl>
+    @can('myData')
+        <div class="btn-group" role="group">
+            <a href="{{ route('textbooks.edit', $textbook) }}" class="btn btn-primary border-start border-end">編集</a>
+            <a href="{{ route('textbooks.destroy', $textbook) }}" class="btn btn-secondary border-start border-end" onclick="deleteTextbook()">削除</a>
+        </div>
+    @endcan
 
-{{-- 削除の実行 --}}
-<form action="{{ route('textbooks.destroy',$textbook) }}" method="post" id="delete-form">
-    @csrf
-    @method('delete')
-</form>
+    {{-- 削除の実行 --}}
+    <form action="{{ route('textbooks.destroy', $textbook) }}" method="post" id="delete-form">
+        @csrf
+        @method('delete')
+    </form>
 
     <script type="text/javascript">
         function deleteTextbook() {
@@ -35,7 +36,8 @@
                 document.getElementById('delete-form').submit();
             }
         }
+
     </script>
-</p>  
+    </p>
 
 @endsection

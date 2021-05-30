@@ -19,8 +19,7 @@
     <li><a href="{{ route('register') }}" class="btn btn-outline-primary">新規会員登録</a></li>
     <li><a href="{{ route('login') }}" class="btn btn-outline-primary">ログイン</a></li>
 </ul> --}}
-<video class="video1home" autoplay muted playsinline src="/images/textbook3-1.mp4" loop autoplay muted
- width="1200px" height="500px"></video>
+<video class="video1home" autoplay muted playsinline src="/images/textbook3-1.mp4" loop autoplay muted width="1200px" height="500px"></video>
 @endguest
 
 {{-- ログイン後 --}}
@@ -37,8 +36,7 @@
 
 <div class="video2home">
     <img src="/images/smartphone.jpg" width="350px" height="197px">
-    <video autoplay muted playsinline src="/images/textbookhome1.mp4" loop autoplay muted
-    width="350px"></video>
+    <video autoplay muted playsinline src="/images/textbookhome1.mp4" loop width="350px"></video>
     <img src="/images/library1.jpg" width="350px" height="197px">
 </div>
 <div class="userinfoedit">
