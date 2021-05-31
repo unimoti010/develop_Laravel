@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="/css/test.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+        href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.4/vegas.min.css">
 
 </head>
 <style>
@@ -35,7 +38,6 @@
     a {
         text-decoration: none;
     }
-
 </style>
 
 <body>
@@ -59,68 +61,68 @@
         <nav class="navbar navbar-expand-lg bg-white border border-2 p-1">
             <div class="container">
                 @if (Auth::check())
-                    <span class="welcome-name">ようこそ、{{ Auth::user()->name }}さん</span>
-                    <div class="d-flex">
-                        <form action="{{ route('logout') }}" method="post">
-                            @csrf
-                            <input type="submit" class="btn btn-outline-secondary" value="ログアウト">
-                        </form>
-                    </div>
+                <span class="welcome-name">ようこそ、{{ Auth::user()->name }}さん</span>
+                <div class="d-flex">
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <input type="submit" class="btn btn-outline-secondary" value="ログアウト">
+                    </form>
+                </div>
                 @else
-                    <span class="welcome-name">ようこそ、ゲストさん</span>
-                    <div class="d-flex btn-group" role="group">
-                        <a href="{{ route('register') }}" class="btn btn-outline-secondary">新規会員登録</a>
-                        <a href="{{ route('login') }}" class="btn btn-outline-secondary">ログイン</a>
-                    </div>
+                <span class="welcome-name">ようこそ、ゲストさん</span>
+                <div class="d-flex btn-group" role="group">
+                    <a href="{{ route('register') }}" class="btn btn-outline-secondary">新規会員登録</a>
+                    <a href="{{ route('login') }}" class="btn btn-outline-secondary">ログイン</a>
+                </div>
                 @endif
             </div>
         </nav>
-
-        <nav class="navbar navbar-dark app-main">
-            <div class="container">
-                <a class="btn btn-outline-light logo" href="/">
-                    <h2>{{ config('app.name') }}</h2>
-                </a>
-            </div>
-        </nav>
-
     </header>
     @auth
-        <div class="sticky-top bg-white border border-2">
-            <div class="container">
-                <div class="row">
-                    @can('isAdmin')
-                        <div class="col btn border-start border-end">
-                            <a href="{{ route('admin.allUsers') }}" class="text-muted">会員一覧</a>
-                        </div>
-                        <div class="col btn border-start border-end">
-                            <a href="{{ route('admin.allTextbooks') }}" class="text-muted">教科書一覧</a>
-                        </div>
-                    @endcan
-                    @cannot('isAdmin')
-                        <div class="col btn border-start border-end">
-                            <a href="{{ route('textbooks.index') }}" class="text-muted">教科書一覧</a>
-                        </div>
-                        <div class="col btn border-start border-end">
-                            <a href="{{ route('textbooks.create') }}" class="text-muted">教科書登録</a>
-                        </div>
-                        <div class="col btn border-start border-end">
-                            <a href="{{ route('register_histories.index') }}" class="text-muted">登録履歴</a>
-                        </div>
-                        <div class="col btn border-start border-end">
-                            <a href="{{ route('purchase_histories.index') }}" class="text-muted">購入履歴</a>
-                        </div>
-                    @endcannot
+    <nav class="navbar navbar-dark app-main">
+        <div class="container">
+            <a class="btn btn-outline-light logo" href="/">
+                <h2>{{ config('app.name') }}</h2>
+            </a>
+        </div>
+    </nav>
+
+    <div class="sticky-top bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col btn border-start border-end">
+                    <a href="{{ route('users.edit', \Auth::user()) }}" class="text-muted">登録情報変更</a>
                 </div>
+                @can('isAdmin')
+                <div class="col btn border-start border-end">
+                    <a href="{{ route('admin.allUsers') }}" class="text-muted">会員一覧</a>
+                </div>
+                <div class="col btn border-start border-end">
+                    <a href="{{ route('admin.allTextbooks') }}" class="text-muted">教科書一覧</a>
+                </div>
+                @endcan
+                @cannot('isAdmin')
+                <div class="col btn border-start border-end">
+                    <a href="{{ route('textbooks.index') }}" class="text-muted">教科書一覧</a>
+                </div>
+                <div class="col btn border-start border-end">
+                    <a href="{{ route('textbooks.create') }}" class="text-muted">教科書登録</a>
+                </div>
+                <div class="col btn border-start border-end">
+                    <a href="{{ route('register_histories.index') }}" class="text-muted">登録履歴</a>
+                </div>
+                <div class="col btn border-start border-end">
+                    <a href="{{ route('purchase_histories.index') }}" class="text-muted">購入履歴</a>
+                </div>
+                @endcannot
             </div>
         </div>
+    </div>
     @endauth
     <main>
         <div class="container">
             @yield('content')
         </div>
-        @yield('guest')
-        @yield('home')
     </main>
 </body>
 
