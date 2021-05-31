@@ -12,18 +12,11 @@ html {
 }
 
 .video1home {
-    text-align: center;
-    margin-left:80px ;
+    width: 100%;
 }
 
 .video2home {
     text-align: center;
-}
-
-.userinfoedit {
-    margin-top: 20px;
-    text-align: right;
-    margin-right: 70px;
 }
 
 h1 {
