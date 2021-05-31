@@ -22,5 +22,5 @@
 </table>
 
 <p>お買い上げありがとうございました</p>
-    <a href="{{route('purchase_histories.index')}}">購入履歴へ</a>
+    <a href="{{route('purchase_histories.index')}}" class="btn btn-secondary">購入履歴へ</a>
 @endsection

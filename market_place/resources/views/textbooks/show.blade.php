@@ -9,7 +9,7 @@
                 @csrf
                 <input type="hidden" value="{{ $textbook->id }}" name="id" />
 
-                <button type="submit">購入</button>
+                <button type="submit" class="btn btn-success">購入</button>
             </form>
         @endif
     @endcannot

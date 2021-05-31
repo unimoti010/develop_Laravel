@@ -78,7 +78,7 @@
             </div>
         </nav>
     </header>
-    @auth
+
     <nav class="navbar navbar-dark app-main">
         <div class="container">
             <a class="btn btn-outline-light logo" href="/">
@@ -86,7 +86,7 @@
             </a>
         </div>
     </nav>
-
+    @auth
     <div class="sticky-top bg-white">
         <div class="container">
             <div class="row">
